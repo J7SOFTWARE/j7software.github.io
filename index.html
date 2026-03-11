@@ -217,7 +217,8 @@
             main { padding: 3rem 1.5rem; border-radius: 20px; }
             h1 { font-size: 3rem; }
             p.subtitle { margin-bottom: 2.5rem; }
-            .satellites, #matrix-canvas { display: none; } /* Skrýt náročné prvky */
+            /* ZDE JE ÚPRAVA: #matrix-canvas už není skrytý, satelity (3D kostičky) na mobilu vypínáme */
+            .satellites { display: none; } 
         }
     </style>
 </head>
@@ -242,88 +243,4 @@
             <p class="subtitle">Digitální kódování prémiových Android aplikací. Čistý kód, úderný design.</p>
             
             <a href="mailto:j7software@post.cz" class="contact-card">
-                <svg class="mail-icon-large" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
-                <span class="email-text">j7software@post.cz</span>
-            </a>
-        </main>
-
-    </div>
-
-    <footer>
-        <a href="privacy.html">Zásady ochrany osobních údajů</a>
-    </footer>
-
-    <script>
-        // --- Skript 1: Matrix Rain ---
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-
-        // Nastavení plné velikosti
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        // Znaky Matrixu (směs Katakany, latinky a čísel)
-        const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const charArray = characters.split('');
-
-        const fontSize = 16;
-        let columns = canvas.width / fontSize;
-        const drops = [];
-
-        // Inicializace pozic
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function drawMatrix() {
-            // Jemné černé pozadí pro efekt blednutí trailu
-            ctx.fillStyle = "rgba(0, 7, 18, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Nastavení barvy znaků (využívá Android zelenou z CSS)
-            ctx.fillStyle = "#3ddc84"; 
-            ctx.font = fontSize + "px 'Inter', monospace"; // Monospace pro lepší vzhled
-
-            for (let i = 0; i < drops.length; i++) {
-                // Náhodný znak
-                const text = charArray[Math.floor(Math.random() * charArray.length)];
-                
-                // Kreslení znaku
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                // Resetování dropu na top, pokud dosáhne spodku (náhodně)
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            }
-        }
-
-        // Spuštění animace Matrixu
-        setInterval(drawMatrix, 35);
-
-
-        // --- Skript 2: 3D Tilt Effect (Sledování myši) ---
-        const container = document.getElementById('tilt-container');
-        const body = document.body;
-
-        if (window.innerWidth > 768) { // Pouze desktop
-            body.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 30; // Nižší citlivost
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
-                container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
-
-            body.addEventListener('mouseleave', () => {
-                container.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            });
-        }
-    </script>
-
-</body>
-</html>
+                <svg class="mail-icon-large" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16
