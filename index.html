@@ -11,12 +11,11 @@
 
     <style>
         :root {
-            --bg-deep: #000712; /* Černo-modré hluboké pozadí */
+            --bg-deep: #000712;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --accent: #3ddc84; /* Android zelená */
-            --accent-glow: rgba(61, 220, 132, 0.4);
-            --panel-bg: rgba(255, 255, 255, 0.03); /* Velmi jemné sklo */
+            --panel-bg: rgba(255, 255, 255, 0.03);
             --panel-border: rgba(255, 255, 255, 0.06);
         }
 
@@ -31,8 +30,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Zabrání scrollbarům */
-            perspective: 1500px; /* Klíč pro 3D hloubku */
+            overflow-x: hidden; /* Zabrání vodorovnému scrollování na mobilu */
+            perspective: 1500px;
             position: relative;
         }
 
@@ -41,21 +40,22 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2; /* Hluboko v pozadí */
-            opacity: 0.2; /* Velmi jemný, nerušivý efekt */
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            opacity: 0.25; /* Mírně zesílená viditelnost */
+            pointer-events: none;
         }
 
-        /* --- Vrstva 2: Dynamické pozadí - barevné záře --- */
+        /* --- Vrstva 2: Dynamické pozadí --- */
         body::before {
             content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             background: 
-                radial-gradient(circle at 15% 15%, rgba(61, 220, 132, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(29, 78, 216, 0.08) 0%, transparent 40%);
-            z-index: -1; /* Nad Matrixem, pod panelem */
+                radial-gradient(circle at 15% 15%, rgba(61, 220, 132, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(29, 78, 216, 0.08) 0%, transparent 50%);
+            z-index: -1;
             pointer-events: none;
         }
 
@@ -71,13 +71,15 @@
             transform-style: preserve-3d;
             padding: 2rem;
             z-index: 2;
+            margin-top: auto;
+            margin-bottom: auto;
         }
 
         /* Hlavní skleněný panel - Glassmorphism */
         main {
             background-color: var(--panel-bg);
-            backdrop-filter: blur(25px); /* Silnější rozostření */
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--panel-border);
             border-radius: 30px;
             padding: 4rem;
@@ -89,27 +91,29 @@
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             position: relative;
-            transform: translateZ(50px); /* Vystoupí do popředí */
+            transform: translateZ(50px);
         }
 
         /* Brand / Nadpis */
         .brand-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 1rem;
+            flex-wrap: wrap; /* Pro velmi úzké displeje */
         }
 
         .android-icon-mini {
             width: 32px; height: 32px;
             fill: var(--accent);
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         h1 {
-            font-size: clamp(3.5rem, 8vw, 5.5rem);
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
             font-weight: 900;
-            letter-spacing: -0.07em;
+            letter-spacing: -0.05em;
             line-height: 1;
             background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
             -webkit-background-clip: text;
@@ -118,51 +122,53 @@
         }
 
         p.subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
             color: var(--text-muted);
             font-weight: 400;
             max-width: 530px;
             margin-bottom: 3.5rem;
-            letter-spacing: -0.01em;
+            line-height: 1.5;
         }
 
         /* Akční karta pro kontakt */
         .contact-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            justify-content: center;
+            gap: 1rem;
             transition: all 0.3s ease-out;
             text-decoration: none;
             color: var(--accent);
-            position: relative;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
         }
 
         .contact-card:hover {
-            background: rgba(61, 220, 132, 0.04);
+            background: rgba(61, 220, 132, 0.05);
             border-color: rgba(61, 220, 132, 0.3);
-            transform: translateY(-5px) scale(1.03) translateZ(20px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 25px -5px rgba(61, 220, 132, 0.2);
         }
 
         .mail-icon-large {
-            width: 48px; height: 48px;
+            width: 36px; height: 36px;
             fill: currentColor;
-            opacity: 0.9;
         }
 
         .email-text {
             font-size: 1.3rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
+            word-break: break-all; /* Aby dlouhý email nepřetekl ven */
         }
 
-        /* --- Plovoucí 3D grafika (nad Matrixem, pod panelem) --- */
+        /* --- Plovoucí 3D grafika (PC) --- */
         .satellites {
             position: absolute;
             width: 100%; height: 100%;
@@ -181,19 +187,18 @@
             animation: float 18s ease-in-out infinite;
         }
 
-        .sat-1 { width: 100px; height: 100px; top: -70px; left: 8%; animation-delay: 0s; transform: translateZ(-120px); }
-        .sat-2 { width: 80px; height: 120px; bottom: 15%; right: 2%; animation-delay: -4s; transform: translateZ(-60px); }
-        .sat-3 { width: 60px; height: 60px; top: 15%; right: 12%; animation-delay: -9s; border-color: rgba(61, 220, 132, 0.1); transform: translateZ(90px); }
+        .sat-1 { width: 100px; height: 100px; top: -50px; left: 5%; animation-delay: 0s; transform: translateZ(-100px); }
+        .sat-2 { width: 80px; height: 120px; bottom: 10%; right: 2%; animation-delay: -4s; transform: translateZ(-50px); }
+        .sat-3 { width: 60px; height: 60px; top: 15%; right: 8%; animation-delay: -9s; border-color: rgba(61, 220, 132, 0.1); transform: translateZ(80px); }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(3deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
         }
 
         /* Patička */
         footer {
-            margin-top: auto;
-            padding: 3rem;
+            padding: 2rem;
             width: 100%;
             text-align: center;
             z-index: 3;
@@ -203,21 +208,31 @@
         footer a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.2s ease;
             opacity: 0.6;
         }
 
         footer a:hover { color: var(--text-main); opacity: 1; }
 
-        /* Přizpůsobení pro mobily */
+        /* --- Mobilní zobrazení --- */
         @media (max-width: 768px) {
-            body { overflow: auto; perspective: none; }
-            #tilt-container { transform: none !important; padding: 1rem; }
-            main { padding: 3rem 1.5rem; border-radius: 20px; }
-            h1 { font-size: 3rem; }
-            p.subtitle { margin-bottom: 2.5rem; }
-            /* ZDE JE ÚPRAVA: #matrix-canvas už není skrytý, satelity (3D kostičky) na mobilu vypínáme */
+            body { perspective: none; }
+            #tilt-container { transform: none !important; padding: 1rem; margin-top: 2rem;}
+            main { padding: 2.5rem 1.5rem; border-radius: 20px; }
+            h1 { font-size: 2.8rem; }
+            p.subtitle { margin-bottom: 2rem; font-size: 1.1rem; }
+            
+            /* Změna orientace tlačítka na mobilu - ikona a text vedle sebe */
+            .contact-card {
+                flex-direction: row;
+                padding: 1rem 1.2rem;
+                gap: 1rem;
+            }
+            .mail-icon-large { width: 24px; height: 24px; }
+            .email-text { font-size: 1.1rem; }
+
+            /* Vypnutí satelitů, Matrix ale běží dál! */
             .satellites { display: none; } 
         }
     </style>
@@ -243,4 +258,79 @@
             <p class="subtitle">Digitální kódování prémiových Android aplikací. Čistý kód, úderný design.</p>
             
             <a href="mailto:j7software@post.cz" class="contact-card">
-                <svg class="mail-icon-large" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16
+                <svg class="mail-icon-large" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+                <span class="email-text">j7software@post.cz</span>
+            </a>
+        </main>
+    </div>
+
+    <footer>
+        <a href="privacy.html">Zásady ochrany osobních údajů</a>
+    </footer>
+
+    <script>
+        // --- Skript 1: Zaručeně funkční Matrix Rain ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        const fontSize = 16;
+        let columns = 0;
+        let drops = [];
+
+        function initMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = Math.floor(canvas.width / fontSize);
+            drops = [];
+            // Načtení polohy kapek - rozprostřeme je hned od začátku po celé ploše
+            for (let x = 0; x < columns; x++) {
+                drops[x] = Math.floor(Math.random() * (canvas.height / fontSize)); 
+            }
+        }
+        
+        window.addEventListener('resize', initMatrix);
+        initMatrix(); // Prvotní spuštění
+
+        const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const charArray = characters.split('');
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 7, 18, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#3ddc84"; 
+            ctx.font = fontSize + "px 'Inter', monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Když znak dojede dolů, náhodně ho vrátíme na začátek
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 35);
+
+
+        // --- Skript 2: 3D Tilt Effect (Sledování myši - jen pro PC) ---
+        const container = document.getElementById('tilt-container');
+        const body = document.body;
+
+        if (window.innerWidth > 768) { 
+            body.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+                container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            body.addEventListener('mouseleave', () => {
+                container.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
+    </script>
+
+</body>
+</html>
