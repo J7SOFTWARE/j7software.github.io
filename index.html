@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J7Software | Úderný vývoj Android aplikací</title>
+    <title>J7Software | Digitální kódování Android aplikací</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
 
     <style>
         :root {
-            --bg-deep: #030712; /* Černo-modré hluboké pozadí */
+            --bg-deep: #000712; /* Černo-modré hluboké pozadí */
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --accent: #3ddc84; /* Android zelená */
@@ -31,19 +31,32 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Zabrání scrollbarům při 3D efektu */
+            overflow: hidden; /* Zabrání scrollbarům */
             perspective: 1500px; /* Klíč pro 3D hloubku */
+            position: relative;
         }
 
-        /* Dynamické pozadí - hluboký gradient a záře */
+        /* --- Vrstva 1: Canvas pro Matrix Rain --- */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Hluboko v pozadí */
+            opacity: 0.2; /* Velmi jemný, nerušivý efekt */
+        }
+
+        /* --- Vrstva 2: Dynamické pozadí - barevné záře --- */
         body::before {
             content: '';
             position: absolute;
             top: -50%; left: -50%; width: 200%; height: 200%;
             background: 
-                radial-gradient(circle at 10% 10%, rgba(61, 220, 132, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(29, 78, 216, 0.05) 0%, transparent 40%);
-            z-index: -1;
+                radial-gradient(circle at 15% 15%, rgba(61, 220, 132, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(29, 78, 216, 0.08) 0%, transparent 40%);
+            z-index: -1; /* Nad Matrixem, pod panelem */
+            pointer-events: none;
         }
 
         /* Hlavní kontejner pro 3D efekt sledování myši */
@@ -54,16 +67,17 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            transition: transform 0.1s ease-out; /* Plynulé sledování myši */
+            transition: transform 0.1s ease-out;
             transform-style: preserve-3d;
             padding: 2rem;
+            z-index: 2;
         }
 
         /* Hlavní skleněný panel - Glassmorphism */
         main {
             background-color: var(--panel-bg);
-            backdrop-filter: blur(20px); /* Silné rozostření pozadí */
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px); /* Silnější rozostření */
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--panel-border);
             border-radius: 30px;
             padding: 4rem;
@@ -73,13 +87,12 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             position: relative;
-            z-index: 2;
-            transform: translateZ(50px); /* Vystoupí do popředí ve 3D */
+            transform: translateZ(50px); /* Vystoupí do popředí */
         }
 
-        /* Brand / Nadpis s malou ikonou */
+        /* Brand / Nadpis */
         .brand-container {
             display: flex;
             align-items: center;
@@ -108,33 +121,33 @@
             font-size: clamp(1.1rem, 2.5vw, 1.6rem);
             color: var(--text-muted);
             font-weight: 400;
-            max-width: 500px;
+            max-width: 530px;
             margin-bottom: 3.5rem;
             letter-spacing: -0.01em;
         }
 
         /* Akční karta pro kontakt */
         .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 20px;
             padding: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease-out;
             text-decoration: none;
             color: var(--accent);
             position: relative;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         .contact-card:hover {
-            background: rgba(61, 220, 132, 0.03);
-            border-color: rgba(61, 220, 132, 0.2);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 25px -5px rgba(61, 220, 132, 0.15);
+            background: rgba(61, 220, 132, 0.04);
+            border-color: rgba(61, 220, 132, 0.3);
+            transform: translateY(-5px) scale(1.03) translateZ(20px);
+            box-shadow: 0 20px 25px -5px rgba(61, 220, 132, 0.2);
         }
 
         .mail-icon-large {
@@ -149,50 +162,35 @@
             letter-spacing: -0.02em;
         }
 
-        /* --- Plovoucí interaktivní grafika kolem panelu --- */
+        /* --- Plovoucí 3D grafika (nad Matrixem, pod panelem) --- */
         .satellites {
             position: absolute;
             width: 100%; height: 100%;
             top: 0; left: 0;
             z-index: 1;
-            pointer-events: none; /* Kliknutí projdou skrz */
+            pointer-events: none;
             transform-style: preserve-3d;
         }
 
         .sat {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 12px;
-            animation: float 15s ease-in-out infinite;
+            animation: float 18s ease-in-out infinite;
         }
 
-        /* Definice jednotlivých plovoucích prvků */
-        .sat-1 { width: 100px; height: 100px; top: -50px; left: 10%; animation-delay: 0s; transform: translateZ(-100px); }
-        .sat-2 { width: 80px; height: 120px; bottom: 10%; right: 5%; animation-delay: -3s; transform: translateZ(-50px); }
-        .sat-3 { width: 60px; height: 60px; top: 20%; right: 15%; animation-delay: -7s; border-color: var(--accent-glow); transform: translateZ(80px); }
-        .sat-4 { width: 40px; height: 40px; bottom: -20px; left: 20%; animation-delay: -11s; opacity: 0.5; transform: translateZ(-150px); }
-
-        /* Pulzující datové body */
-        .sat-dot {
-            width: 8px; height: 8px; background-color: var(--accent);
-            border-radius: 50%; top: 40%; left: -100px;
-            box-shadow: 0 0 15px var(--accent);
-            animation: float 10s ease-in-out infinite, pulse 2s infinite;
-        }
+        .sat-1 { width: 100px; height: 100px; top: -70px; left: 8%; animation-delay: 0s; transform: translateZ(-120px); }
+        .sat-2 { width: 80px; height: 120px; bottom: 15%; right: 2%; animation-delay: -4s; transform: translateZ(-60px); }
+        .sat-3 { width: 60px; height: 60px; top: 15%; right: 12%; animation-delay: -9s; border-color: rgba(61, 220, 132, 0.1); transform: translateZ(90px); }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-25px) rotate(3deg); }
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Patička - velmi minimalistická */
+        /* Patička */
         footer {
             margin-top: auto;
             padding: 3rem;
@@ -207,23 +205,25 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.2s ease;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         footer a:hover { color: var(--text-main); opacity: 1; }
 
-        /* Přizpůsobení pro mobily (vypnutí 3D efektu a zmenšení) */
+        /* Přizpůsobení pro mobily */
         @media (max-width: 768px) {
             body { overflow: auto; perspective: none; }
             #tilt-container { transform: none !important; padding: 1rem; }
             main { padding: 3rem 1.5rem; border-radius: 20px; }
             h1 { font-size: 3rem; }
             p.subtitle { margin-bottom: 2.5rem; }
-            .satellites { display: none; } /* Skrýt grafiku na mobilu */
+            .satellites, #matrix-canvas { display: none; } /* Skrýt náročné prvky */
         }
     </style>
 </head>
 <body>
+
+    <canvas id="matrix-canvas"></canvas>
 
     <div id="tilt-container">
         
@@ -231,8 +231,6 @@
             <div class="sat sat-1"></div>
             <div class="sat sat-2"></div>
             <div class="sat sat-3"></div>
-            <div class="sat sat-4"></div>
-            <div class="sat sat-dot"></div>
         </div>
 
         <main>
@@ -241,7 +239,7 @@
                 <h1>J7Software</h1>
             </div>
             
-            <p class="subtitle">Prémiový vývoj Android aplikací. Čistý kód, úderný design.</p>
+            <p class="subtitle">Digitální kódování prémiových Android aplikací. Čistý kód, úderný design.</p>
             
             <a href="mailto:j7software@post.cz" class="contact-card">
                 <svg class="mail-icon-large" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
@@ -256,17 +254,71 @@
     </footer>
 
     <script>
+        // --- Skript 1: Matrix Rain ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Nastavení plné velikosti
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Znaky Matrixu (směs Katakany, latinky a čísel)
+        const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const charArray = characters.split('');
+
+        const fontSize = 16;
+        let columns = canvas.width / fontSize;
+        const drops = [];
+
+        // Inicializace pozic
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            // Jemné černé pozadí pro efekt blednutí trailu
+            ctx.fillStyle = "rgba(0, 7, 18, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Nastavení barvy znaků (využívá Android zelenou z CSS)
+            ctx.fillStyle = "#3ddc84"; 
+            ctx.font = fontSize + "px 'Inter', monospace"; // Monospace pro lepší vzhled
+
+            for (let i = 0; i < drops.length; i++) {
+                // Náhodný znak
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                
+                // Kreslení znaku
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Resetování dropu na top, pokud dosáhne spodku (náhodně)
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        // Spuštění animace Matrixu
+        setInterval(drawMatrix, 35);
+
+
+        // --- Skript 2: 3D Tilt Effect (Sledování myši) ---
         const container = document.getElementById('tilt-container');
         const body = document.body;
 
-        if (window.innerWidth > 768) { // Aktivovat pouze na desktopu
+        if (window.innerWidth > 768) { // Pouze desktop
             body.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25; // Citlivost osy X
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25; // Citlivost osy Y
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 30; // Nižší citlivost
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
                 container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
             });
 
-            // Resetovat polohu, když myš opustí okno
             body.addEventListener('mouseleave', () => {
                 container.style.transform = 'rotateY(0deg) rotateX(0deg)';
             });
