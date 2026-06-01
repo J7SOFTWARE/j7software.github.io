@@ -1,0 +1,36 @@
+Privacy Policy for Sudoku Garden
+Last updated: June 1, 2026
+
+This Privacy Policy governs the privacy terms of our mobile application, Sudoku Garden (hereinafter referred to as the "App").
+
+The App is designed as a standalone game and does not require users to create an account or provide any personal identification data (such as name, email, or phone number) to access its features.
+
+1. Data Collection and Usage
+We do not collect or store any personal data on our own servers. However, the App integrates third-party SDKs and services provided by Google, which may automatically collect and process certain information from your device to ensure core functionalities:
+
+Google Play Billing (In-App Purchases): Used to handle payments for removing advertisements. This service processes purchase history and financial transaction identifiers to verify ownership of premium features.
+
+Google Mobile Ads (AdMob / Third-Party Advertising): Used to display advertisements within the App. This service may process device identifiers, advertising IDs, and pseudonymous diagnostic or performance data to deliver, limit, and personalize ads.
+
+2. Data Encryption and Security
+All user data processed by integrated third-party services is transmitted securely from your device using industry-standard encrypted protocols (HTTPS), protecting it against unauthorized access during transit.
+
+3. Data Deletion and User Rights
+Since the App does not offer account creation, we do not maintain individual user accounts to delete. However, you retain full control over the advertising and tracking data processed by third-party ad networks on your device.
+
+How to Request Data Deletion / Reset Tracking:
+You can request the deletion of your advertising profile or reset your advertising identifier directly through your Android system settings:
+
+Open the Settings app on your device.
+
+Navigate to Privacy > Ads (or Google > Services > Ads).
+
+Select Reset advertising ID or Delete advertising ID.
+
+Doing so will delete or decouple the historical advertising data collected by ad networks from your device.
+
+4. Children's Privacy
+The App is intended for players aged 13 and older. We do not knowingly target or collect personal information from children under the age of 13.
+
+5. Contact Us
+If you have any questions or requests regarding this Privacy Policy, please contact us at: j7software@post.cz
