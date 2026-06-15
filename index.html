@@ -29,11 +29,7 @@
             --max-width: 1000px;
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -45,7 +41,6 @@
             position: relative;
         }
 
-        /* Ambientní záře v pozadí pro moderní vzhled */
         body::before {
             content: '';
             position: absolute;
@@ -59,31 +54,12 @@
             pointer-events: none;
         }
 
-        .container {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
 
-        /* Hero Sekce */
-        header {
-            padding: 6rem 0 5rem 0;
-            text-align: center;
-        }
+        header { padding: 6rem 0 5rem 0; text-align: center; }
 
-        .brand-group {
-            display: inline-flex;
-            align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .brand-logo {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
+        .brand-group { display: inline-flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+        .brand-logo { height: 60px; width: auto; object-fit: contain; }
 
         h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
@@ -95,197 +71,36 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
+        .subtitle { font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-muted); max-width: 600px; margin: 0 auto; font-weight: 400; }
 
-        /* Sekce Hodnot / Vlastností */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 5rem;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
+        .feature-item { background: var(--card-bg); border: 1px solid var(--card-border); backdrop-filter: blur(10px); padding: 1.8rem; border-radius: 20px; text-align: left; }
+        .feature-item h3 { color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .feature-item p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .feature-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 1.8rem;
-            border-radius: 20px;
-            text-align: left;
-        }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+        .section-title::after { content: ''; flex-grow: 1; height: 1px; background: rgba(255, 255, 255, 0.1); }
 
-        .feature-item h3 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
+        .apps-container { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 6rem; }
+        .app-large-card { background: var(--card-bg); border: 1px solid var(--card-border); backdrop-filter: blur(12px); border-radius: 24px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .app-large-card:hover { border-color: rgba(61, 220, 132, 0.25); background: rgba(13, 19, 33, 0.6); transform: translateY(-3px); }
+        .app-meta { display: flex; align-items: center; gap: 1.5rem; }
+        .app-icon { width: 80px; height: 80px; border-radius: 18px; object-fit: cover; }
+        .app-info h3 { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+        .app-large-card:hover .app-info h3 { color: var(--accent); }
+        .app-tagline { color: var(--text-muted); font-size: 1rem; }
+        .app-link-badge { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.6rem 1.2rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; }
 
-        .feature-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 4rem 0; background: #04060c; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        footer a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        footer a:hover { color: var(--accent); }
+        .copyright { font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); }
 
-        /* Sekce Aplikací */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: left;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .apps-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 6rem;
-        }
-
-        .app-large-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .app-large-card:hover {
-            border-color: rgba(61, 220, 132, 0.25);
-            background: rgba(13, 19, 33, 0.6);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .app-meta {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-            object-fit: cover;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-
-        .app-info h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.25rem;
-            transition: color 0.2s;
-        }
-
-        .app-large-card:hover .app-info h3 {
-            color: var(--accent);
-        }
-
-        .app-tagline {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .app-link-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-main);
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .app-large-card:hover .app-link-badge {
-            background: rgba(61, 220, 132, 0.1);
-            border-color: rgba(61, 220, 132, 0.3);
-            color: var(--accent);
-        }
-
-        /* Patička */
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 4rem 0;
-            background: #04060c;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        footer a, footer .contact-info a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover, footer .contact-info a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-            margin-top: 0.5rem;
-        }
-
-        /* Responzivita pro mobily */
         @media (max-width: 768px) {
-            header { padding: 4rem 0 2.5rem 0; }
-            .features-grid { grid-template-columns: 1fr; gap: 1rem; }
-            
-            .app-large-card {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.75rem;
-                gap: 1.5rem;
-            }
-            
-            .app-meta { gap: 1.2rem; }
-            .app-icon { width: 65px; height: 65px; border-radius: 14px; }
-            .app-link-badge { width: 100%; text-align: center; }
-            .footer-links { flex-direction: column; gap: 1rem; }
+            .app-large-card { flex-direction: column; align-items: flex-start; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -318,7 +133,6 @@
         <section>
             <h2 class="section-title">Naše projekty</h2>
             <div class="apps-container">
-                
                 <a href="https://play.google.com/store/apps/details?id=com.j7software.emailapp" target="_blank" class="app-large-card">
                     <div class="app-meta">
                         <img src="logo.png" alt="TchikiMail" class="app-icon">
@@ -341,9 +155,9 @@
                     <span class="app-link-badge">Stáhnout z Google Play</span>
                 </a>
 
-                <a href="#" target="_blank" class="app-large-card">
+                <a href="#" class="app-large-card">
                     <div class="app-meta">
-                        <img src="audio-recorder.png" alt="Audio Recorder" class="app-icon">
+                        <img src="audiorecorderikona.png" alt="Audio Recorder" class="app-icon">
                         <div class="app-info">
                             <h3>Audio Recorder</h3>
                             <p class="app-tagline">Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.</p>
@@ -352,7 +166,7 @@
                     <span class="app-link-badge">Brzy k dispozici</span>
                 </a>
 
-                <a href="#" target="_blank" class="app-large-card">
+                <a href="#" class="app-large-card">
                     <div class="app-meta">
                         <img src="sudokuicon.png" alt="Sudoku Garden" class="app-icon">
                         <div class="app-info">
@@ -362,7 +176,6 @@
                     </div>
                     <span class="app-link-badge">Připravuje se</span>
                 </a>
-
             </div>
         </section>
     </div>
@@ -371,9 +184,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="privacy.html">Zásady ochrany soukromí: TchikiMail</a>
-                    <a href="raven-privacy.html">Zásady ochrany soukromí: Raven</a>
-                    <a href="https://j7software.github.io/Sudoku_privacy_policy.html" target="_blank">Zásady ochrany soukromí: Sudoku Garden</a>
+                    <a href="privacy.html">TchikiMail Privacy Policy</a>
+                    <a href="raven-privacy.html">Raven Privacy Policy</a>
+                    <a href="https://j7software.github.io/privacy_policy_audio.txt" target="_blank">Audio Recorder Privacy Policy</a>
+                    <a href="https://j7software.github.io/Sudoku_privacy_policy.html" target="_blank">Sudoku Garden Privacy Policy</a>
                 </div>
                 <div class="contact-info">Kontakt: <a href="#" onclick="openSecureEmail(event)">Zobrazit e-mail</a></div>
                 <p class="copyright">&copy; 2026 J7Software. Všechna práva vyhrazena.</p>
@@ -384,23 +198,11 @@
     <script>
         function openSecureEmail(event) {
             event.preventDefault(); 
-            
-            const name = "j7software";
-            const domain = "post";
-            const tld = "cz";
-            const fullAddress = name + "@" + domain + "." + tld;
-            
+            const fullAddress = "j7software@post.cz";
             window.location.href = "mailto:" + fullAddress;
-            
-            if (event.target) {
-                event.target.textContent = fullAddress;
-                event.target.style.color = "var(--accent)";
-            }
+            event.target.textContent = fullAddress;
+            event.target.style.color = "var(--accent)";
         }
     </script>
-
 </body>
 </html>
-```eof
-
-Aplikaci jsem přidal do seznamu projektů a nastavil ji jako "Brzy k dispozici". Pokud budete mít další nápady na úpravy, stačí říct!
