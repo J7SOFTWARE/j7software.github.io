@@ -8,4 +8,6 @@ In-App Purchases: The app offers a one-time in-app purchase to remove advertisem
 
 Data Sharing: Your recorded audio files are never transmitted to any external servers.
 
+Data Deletion Request: If you wish to request the deletion of any data associated with your use of this application, please contact us.
+
 Contact: If you have any questions, please contact me at: j7software@post.cz
