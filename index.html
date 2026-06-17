@@ -7,8 +7,14 @@
     
     <meta name="description" content="J7Software - Přetváříme nápady ve výkonné Android aplikace. Čistý kód, moderní vývoj, transparentní přístup a důraz na soukromí.">
 
-    <link rel="icon" type="image/png" href="favicon.png" sizes="96x96" />
-    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0f0d17">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +58,6 @@
             pointer-events: none;
         }
 
-        /* Jazykový přepínač v horním rohu */
         .lang-switcher {
             position: absolute;
             top: 20px;
@@ -264,7 +269,7 @@
             </div>
             <div class="feature-item">
                 <h3 id="txt-f2-title">Moderní architektura</h3>
-                <p id="txt-f2-desc">Stavíme na nejnovějších technologiích a nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.</p>
+                <p id="txt-f2-desc">Stavíme na nejnovějších technologiích and nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.</p>
             </div>
             <div class="feature-item">
                 <h3 id="txt-f3-title">Vaše data pod kontrolou</h3>
@@ -371,7 +376,6 @@
     </footer>
 
     <script>
-        // Jazykové mutace dat
         const languages = {
             cz: {
                 subtitle: "Přetváříme nápady ve výkonné Android aplikace. Moderní vývoj s nekompromisním důrazem na čistotu kódu a soukromí uživatelů.",
@@ -413,15 +417,12 @@
             }
         };
 
-        // Funkce pro přepnutí jazyka a uložení do paměti prohlížeče
         function switchLanguage(lang) {
             localStorage.setItem('preferredLanguage', lang);
             
-            // Aktualizace aktivních tlačítek
             document.getElementById('btn-cz').classList.toggle('active', lang === 'cz');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             
-            // Změna textů na stránce
             document.getElementById('txt-subtitle').textContent = languages[lang].subtitle;
             document.getElementById('txt-f1-title').textContent = languages[lang].f1_title;
             document.getElementById('txt-f1-desc').textContent = languages[lang].f1_desc;
@@ -435,7 +436,6 @@
             document.getElementById('txt-audio-tag').textContent = languages[lang].audio_tag;
             document.getElementById('txt-sudoku-tag').textContent = languages[lang].sudoku_tag;
             
-            // Status badges (musíme brát v potaz, že některé karty je nemají, tak raději bezpečně přes ID)
             const statusSoon = document.getElementById('txt-status-soon');
             if(statusSoon) statusSoon.textContent = languages[lang].status_soon;
             const statusPrep = document.getElementById('txt-status-prep');
@@ -443,35 +443,24 @@
             
             document.getElementById('txt-contact-label').textContent = languages[lang].contact_label;
             
-            // Pokud už uživatel na email kliknul, nepřepisovat odhalenou adresu textem "Zobrazit e-mail"
             const emailBtn = document.getElementById('txt-contact-btn');
             if (!emailBtn.textContent.includes('@')) {
                 emailBtn.textContent = languages[lang].contact_btn;
             }
             
             document.getElementById('txt-rights').textContent = languages[lang].rights;
-            
-            // Změna atributu lang v html tagu pro SEO
             document.documentElement.lang = lang;
         }
 
-        // --- AUTOMATICKÁ DETEKCE PŘI NAČTENÍ ---
         document.addEventListener("DOMContentLoaded", () => {
-            // 1. Podíváme se, jestli už uživatel dříve kliknul na CZ nebo EN
             let savedLang = localStorage.getItem('preferredLanguage');
-            
             if (!savedLang) {
-                // 2. Pokud ne, detekujeme jazyk prohlížeče
                 const browserLang = navigator.language || navigator.userLanguage;
-                // Pokud obsahuje 'cs' nebo 'sk', dáme češtinu, jinak globální angličtinu
                 savedLang = (browserLang.includes('cs') || browserLang.includes('sk')) ? 'cz' : 'en';
             }
-            
-            // Spustíme lokalizaci
             switchLanguage(savedLang);
         });
 
-        // Ostatní původní logika (Email, Lightbox)
         function openSecureEmail(event) {
             event.preventDefault(); 
             const fullAddress = "j7software@post.cz";
