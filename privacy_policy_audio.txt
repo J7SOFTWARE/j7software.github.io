@@ -1,13 +1,19 @@
-Privacy Policy for Audio recorder
+Privacy Policy for Audio Recorder
+Data Collection and Usage
 
-Data Collection and Usage: The app requires microphone access to record audio. Files are stored locally on your device.
+The app requires microphone access to record audio. Files are stored locally on your device. The app uses Firebase Analytics (Google) to collect anonymous usage data such as app interactions and device identifiers to help improve the app.
+Advertisements
 
-Advertisements: The app uses third-party advertising services (e.g., Google AdMob). These services may collect certain data (e.g., device identifiers, IP addresses) to display personalized ads. Please refer to the privacy policies of these partners for more information.
+The app uses third-party advertising services (Google AdMob). These services may collect certain data (e.g., device identifiers, approximate location from IP address) to display personalized ads. Please refer to Google's privacy policy for more information: https://policies.google.com/privacy
+In-App Purchases
 
-In-App Purchases: The app offers a one-time in-app purchase to remove advertisements. Payments are processed via the Google Play billing system. The app does not have access to your sensitive payment information (such as credit card numbers).
+The app offers a one-time in-app purchase to remove advertisements. Payments are processed via the Google Play billing system. The app does not have access to your sensitive payment information.
+Data Sharing
 
-Data Sharing: Your recorded audio files are never transmitted to any external servers.
+Your recorded audio files are never transmitted to any external servers.
+Data Deletion Request
 
-Data Deletion Request: If you wish to request the deletion of any data associated with your use of this application, please contact us.
+If you wish to request the deletion of any data associated with your use of this application, please contact us.
+Contact
 
-Contact: If you have any questions, please contact me at: j7software@post.cz
+j7software@post.cz
