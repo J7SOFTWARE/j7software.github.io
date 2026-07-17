@@ -1,19 +1,15 @@
 Privacy Policy for Audio Recorder
 Data Collection and Usage
-
 The app requires microphone access to record audio. Files are stored locally on your device. The app uses Firebase Analytics (Google) to collect anonymous usage data such as app interactions and device identifiers to help improve the app.
 Advertisements
-
 The app uses third-party advertising services (Google AdMob). These services may collect certain data (e.g., device identifiers, approximate location from IP address) to display personalized ads. Please refer to Google's privacy policy for more information: https://policies.google.com/privacy
+Consent and Your Choices
+If you are located in the European Economic Area, the UK, or Switzerland, we ask for your consent before showing personalized ads, using a consent form provided by Google's User Messaging Platform. You can review or change your choice at any time from within the app via "Manage consent" in the Privacy Policy screen. Withdrawing consent will not stop ads from showing, but ads may become less relevant to you (non-personalized ads may still use limited data as permitted by applicable law).
 In-App Purchases
-
 The app offers a one-time in-app purchase to remove advertisements. Payments are processed via the Google Play billing system. The app does not have access to your sensitive payment information.
 Data Sharing
-
 Your recorded audio files are never transmitted to any external servers.
 Data Deletion Request
-
 If you wish to request the deletion of any data associated with your use of this application, please contact us.
 Contact
-
 j7software@post.cz
