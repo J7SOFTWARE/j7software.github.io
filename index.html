@@ -128,7 +128,6 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
-            /* NOVÝ ŘÁDEK: Jemný stín pod kartou pro lepší hloubku */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
         }
         
@@ -152,6 +151,16 @@
             border-radius: 10px; 
             background: rgba(0, 0, 0, 0.2);
         }
+        
+        .app-icon.placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05);
+        }
 
         .app-details h3 { font-size: 1.6rem; font-weight: 700; color: #fff; transition: color 0.2s; }
         .app-card:hover .app-details h3 { color: var(--accent); }
@@ -170,6 +179,19 @@
         }
 
         .screenshot-wrapper { flex: 1; max-width: 140px; display: flex; justify-content: center; }
+        
+        .screenshot-placeholder {
+            width: 120px;
+            height: 220px;
+            background: rgba(255,255,255,0.03);
+            border: 1px dashed rgba(255,255,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+        }
         
         .screenshot-wrapper img { 
             width: 100%; 
@@ -271,7 +293,7 @@
             </div>
             <div class="feature-item">
                 <h3 id="txt-f2-title">Moderní architektura</h3>
-                <p id="txt-f2-desc">Stavíme na nejnovějších technologiích and nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.</p>
+                <p id="txt-f2-desc">Stavíme na nejnovějších technologiích a nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.</p>
             </div>
             <div class="feature-item">
                 <h3 id="txt-f3-title">Vaše data pod kontrolou</h3>
@@ -322,6 +344,37 @@
                         <a href="https://j7software.github.io/raven-privacy.html" target="_blank" class="privacy-link">Privacy Policy</a>
                     </div>
                 </div>
+                
+                <!-- QRadox -->
+                <div class="app-card">
+                    <div class="app-details">
+                        <div class="app-header">
+                            <!-- Zástupná ikona, dokud nepřidáš src -->
+                            <div class="app-icon placeholder">QR</div>
+                            <!-- Pro skutečnou ikonu použij toto: <img src="qradoxicon.png" alt="QRadox ikona" class="app-icon"> -->
+                            <h3>QRadox</h3>
+                        </div>
+                        <p class="app-tagline" id="txt-qradox-tag">Rychlý a spolehlivý skener QR kódů a čárových kódů.</p>
+                    </div>
+                    <div class="screenshots-container">
+                        <div class="screenshot-wrapper">
+                            <!-- Zástupný box 1 -->
+                            <div class="screenshot-placeholder">Bez obrázku</div>
+                            <!-- Až budeš mít obrázek, nahraď div výše tímto: <img src="qradox1.png" alt="QRadox" class="zoomable-img"> -->
+                        </div>
+                        <div class="screenshot-wrapper">
+                            <!-- Zástupný box 2 -->
+                            <div class="screenshot-placeholder">Bez obrázku</div>
+                            <!-- Až budeš mít obrázek, nahraď div výše tímto: <img src="qradox2.png" alt="QRadox" class="zoomable-img"> -->
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.qradox" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
+                        <a href="privacy-policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
+                    </div>
+                </div>
 
                 <div class="app-card">
                     <div class="app-details">
@@ -336,7 +389,9 @@
                         <div class="screenshot-wrapper"><img src="audio2.png" alt="Audio Recorder" class="zoomable-img"></div>
                     </div>
                     <div class="actions">
-                        <span class="status-badge" id="txt-status-soon">Brzy k dispozici</span>
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.audiorecorder" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
                         <a href="https://j7software.github.io/privacy_policy_audio.txt" target="_blank" class="privacy-link">Privacy Policy</a>
                     </div>
                 </div>
@@ -354,7 +409,9 @@
                         <div class="screenshot-wrapper"><img src="sudoku2.png" alt="Sudoku Garden" class="zoomable-img"></div>
                     </div>
                     <div class="actions">
-                        <span class="status-badge" id="txt-status-prep">Připravuje se</span>
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.sudokugarden" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
                         <a href="https://j7software.github.io/Sudoku_privacy_policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
                     </div>
                 </div>
@@ -390,6 +447,7 @@
                 section_projects: "Naše projekty",
                 tchiki_tag: "Rychlý, bezpečný a nezávislý e-mailový klient.",
                 raven_tag: "Přehledný a výkonný správce souborů pro váš Android.",
+                qradox_tag: "Rychlý a spolehlivý skener QR kódů a čárových kódů.",
                 audio_tag: "Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.",
                 sudoku_tag: "Relaxační a logická hra pro trénink vaší mysli.",
                 status_soon: "Brzy k dispozici",
@@ -409,6 +467,7 @@
                 section_projects: "Our Projects",
                 tchiki_tag: "A fast, secure, and independent email client.",
                 raven_tag: "A clean and powerful file manager for your Android device.",
+                qradox_tag: "Fast and reliable QR code and barcode scanner.",
                 audio_tag: "A user-friendly audio recording application with easy sharing options.",
                 sudoku_tag: "A relaxing puzzle game to train your mind.",
                 status_soon: "Coming Soon",
@@ -435,6 +494,7 @@
             document.getElementById('txt-section-projects').textContent = languages[lang].section_projects;
             document.getElementById('txt-tchiki-tag').textContent = languages[lang].tchiki_tag;
             document.getElementById('txt-raven-tag').textContent = languages[lang].raven_tag;
+            document.getElementById('txt-qradox-tag').textContent = languages[lang].qradox_tag;
             document.getElementById('txt-audio-tag').textContent = languages[lang].audio_tag;
             document.getElementById('txt-sudoku-tag').textContent = languages[lang].sudoku_tag;
             
