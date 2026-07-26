@@ -151,6 +151,33 @@
             border-radius: 10px; 
             background: rgba(0, 0, 0, 0.2);
         }
+
+        /* Shine sweep – jemný lesklý pruh přejíždějící přes ikonu appky při
+           najetí myší na kartu. Wrapper ořízne pruh do stejného zaoblení
+           jako ikona samotná. */
+        .app-icon-wrap {
+            position: relative;
+            display: inline-block;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .app-icon-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+            transform: skewX(-20deg);
+        }
+        .app-card:hover .app-icon-wrap::after {
+            animation: shine-sweep 1s ease forwards;
+        }
+        @keyframes shine-sweep {
+            100% { left: 135%; }
+        }
+        
         
         .app-icon.placeholder {
             display: flex;
@@ -308,7 +335,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="focalicon.png" alt="FocalFreeze ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="focalicon.png" alt="FocalFreeze ikona" class="app-icon"></div>
                             <h3>FocalFreeze</h3>
                         </div>
                         <p class="app-tagline" id="txt-focal-tag">Chytrá lupa s přisvícením pro čtení drobného textu.</p>
@@ -328,7 +355,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="tchikiicon.png" alt="TchikiMail ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="tchikiicon.png" alt="TchikiMail ikona" class="app-icon"></div>
                             <h3>TchikiMail</h3>
                         </div>
                         <p class="app-tagline" id="txt-tchiki-tag">Rychlý, bezpečný a nezávislý e-mailový klient.</p>
@@ -348,7 +375,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="rave.png" alt="Raven File Manager ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="rave.png" alt="Raven File Manager ikona" class="app-icon"></div>
                             <h3>Raven File Manager</h3>
                         </div>
                         <p class="app-tagline" id="txt-raven-tag">Přehledný a výkonný správce souborů pro váš Android.</p>
@@ -369,7 +396,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="qradoxicon.png" alt="QRadox ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="qradoxicon.png" alt="QRadox ikona" class="app-icon"></div>
                             <h3>QRadox</h3>
                         </div>
                         <p class="app-tagline" id="txt-qradox-tag">Rychlý a spolehlivý skener QR kódů a čárových kódů.</p>
@@ -389,7 +416,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="audiorecorderikona.png" alt="Audio Recorder ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="audiorecorderikona.png" alt="Audio Recorder ikona" class="app-icon"></div>
                             <h3>Audio Recorder</h3>
                         </div>
                         <p class="app-tagline" id="txt-audio-tag">Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.</p>
@@ -409,7 +436,7 @@
                 <div class="app-card">
                     <div class="app-details">
                         <div class="app-header">
-                            <img src="sudokuicon.png" alt="Sudoku Garden ikona" class="app-icon">
+                            <div class="app-icon-wrap"><img src="sudokuicon.png" alt="Sudoku Garden ikona" class="app-icon"></div>
                             <h3>Sudoku Garden</h3>
                         </div>
                         <p class="app-tagline" id="txt-sudoku-tag">Relaxační a logická hra pro trénink vaší mysli.</p>
