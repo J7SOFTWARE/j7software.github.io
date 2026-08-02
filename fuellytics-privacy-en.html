@@ -117,8 +117,7 @@
 
 <main>
   <div class="updated">
-    Last updated: July 28, 2026 &nbsp;·&nbsp;
-    <a href="fuellytics-privacy.html">Česká verze</a>
+    Last updated: August 2, 2026
   </div>
 
   <h2>Introduction</h2>
@@ -140,8 +139,9 @@
       All data about your vehicles and fill-ups/charging sessions is
       stored <strong>exclusively on your device</strong> and is never
       automatically uploaded anywhere. The only data that leaves your
-      device relates to ads and in-app purchases — and that's handled
-      by Google, not by us (details below).
+      device relates to ads, in-app purchases, and basic app
+      diagnostics — and that's handled by Google, not by us (details
+      below).
     </p>
   </div>
 
@@ -174,6 +174,26 @@
     Settings, under "Privacy & consent."
   </p>
 
+  <h2>Diagnostics and analytics (Firebase)</h2>
+  <p>
+    The app uses <strong>Firebase Crashlytics</strong> to collect
+    diagnostic data about app crashes, such as device information and
+    crash stack traces. This collection happens automatically and is
+    not tied to your ad consent choice, since it is technical
+    diagnostics needed to find and fix bugs, not user tracking.
+  </p>
+  <p>
+    The app also uses <strong>Firebase Analytics</strong> to collect
+    anonymized data about how the app is used, but only after you give
+    consent in the GDPR/US privacy dialog described above. You can
+    withdraw this consent at any time in the app's Settings, under
+    "Privacy & consent."
+  </p>
+  <p>
+    This data is processed by Google (Firebase), under
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+  </p>
+
   <h2>In-app purchases</h2>
   <p>
     The app offers a one-time "Remove ads" purchase, processed
@@ -188,12 +208,12 @@
   <h2>App permissions</h2>
   <p>The app may request the following standard Android permission:</p>
   <ul>
-    <li><strong>Internet access</strong> — required to load ads and process purchases.</li>
+    <li><strong>Internet access</strong> — required to load ads, process purchases, and send crash/analytics data to Google Firebase.</li>
   </ul>
   <p>The app does not access your location, contacts, photos, or other sensitive device data.</p>
 
   <h2>Sharing data with third parties</h2>
-  <p>Other than the data described above (AdMob, Google Play Billing), the app does not share any user data with third parties. We do not sell or rent user data to anyone.</p>
+  <p>Other than the data described above (AdMob, Google Play Billing, Firebase Crashlytics/Analytics), the app does not share any user data with third parties. We do not sell or rent user data to anyone.</p>
 
   <h2>Data retention and deletion</h2>
   <p>
