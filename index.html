@@ -473,6 +473,26 @@
                     </div>
                 </div>
 
+                <div class="app-card">
+                    <div class="app-details">
+                        <div class="app-header">
+                            <div class="app-icon-wrap"><img src="subwatchericon.png" alt="SubWatcher ikona" class="app-icon"></div>
+                            <h3>SubWatcher</h3>
+                        </div>
+                        <p class="app-tagline" id="txt-subwatcher-tag">Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.</p>
+                    </div>
+                    <div class="screenshots-container">
+                        <div class="screenshot-wrapper"><img src="subwatcher1.png" alt="SubWatcher" class="zoomable-img"></div>
+                        <div class="screenshot-wrapper"><img src="subwatcher2.png" alt="SubWatcher" class="zoomable-img"></div>
+                    </div>
+                    <div class="actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.subwatcher" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
+                        <a href="privacy_policy_subwatcher.html" target="_blank" class="privacy-link">Privacy Policy</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -509,6 +529,7 @@
                 audio_tag: "Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.",
                 sudoku_tag: "Relaxační a logická hra pro trénink vaší mysli.",
                 fuellytics_tag: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.",
+                subwatcher_tag: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.",
                 status_soon: "Brzy k dispozici",
                 status_prep: "Připravuje se",
                 contact_label: "Kontakt:",
@@ -531,6 +552,7 @@
                 audio_tag: "A user-friendly audio recording application with easy sharing options.",
                 sudoku_tag: "A relaxing puzzle game to train your mind.",
                 fuellytics_tag: "Smart fuel, charging, and cost tracker for all your vehicles.",
+                subwatcher_tag: "Keeps an eye on your subscriptions and reminds you before the next payment.",
                 status_soon: "Coming Soon",
                 status_prep: "In Development",
                 contact_label: "Contact:",
@@ -560,6 +582,7 @@
             document.getElementById('txt-audio-tag').textContent = languages[lang].audio_tag;
             document.getElementById('txt-sudoku-tag').textContent = languages[lang].sudoku_tag;
             document.getElementById('txt-fuellytics-tag').textContent = languages[lang].fuellytics_tag;
+            document.getElementById('txt-subwatcher-tag').textContent = languages[lang].subwatcher_tag;
             
             const statusSoon = document.getElementById('txt-status-soon');
             if(statusSoon) statusSoon.textContent = languages[lang].status_soon;
