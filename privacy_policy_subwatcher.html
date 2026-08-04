@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | SubWatcher — J7Software</title>
+    <meta name="description" content="Privacy Policy for SubWatcher, an Android subscription tracker app by J7Software.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="theme-color" content="#0f0d17">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #05070a;
+            --card-bg: rgba(22, 32, 54, 0.75);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #3ddc84;
+            --accent-glow: rgba(61, 220, 132, 0.12);
+            --max-width: 760px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
+            padding: 0 1rem;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(5,7,10,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1rem; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        header { padding: 2.5rem 0 3rem 0; }
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 0.75rem; }
+        .updated { color: var(--text-muted); font-size: 0.9rem; }
+
+        .policy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .policy-card p {
+            color: #d1d5db;
+            font-size: 1rem;
+            margin-bottom: 1.4rem;
+        }
+        .policy-card p:last-child { margin-bottom: 0; }
+
+        .policy-card strong { color: var(--text-main); }
+
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 3rem 0; background: #030508; margin-top: 0; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+        .contact-info { font-size: 0.9rem; color: var(--text-main); }
+        .contact-info a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .contact-info a:hover { color: var(--accent); }
+        .copyright { font-size: 0.8rem; color: rgba(255, 255, 255, 0.25); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to J7Software</a>
+
+        <header>
+            <div class="eyebrow">SubWatcher</div>
+            <h1>Privacy Policy</h1>
+            <p class="updated">Last updated: August 2026</p>
+        </header>
+
+        <div class="policy-card">
+            <p>None of your subscription data — names, amounts, dates, or notes — is ever collected, transmitted, or seen by anyone but you: it stays only in a local database on your device. There is no account and no server of our own. The app does connect to the internet for a small number of specific, limited purposes, described below — nothing beyond what's listed here.</p>
+
+            <p>One of those purposes is checking for app updates: SubWatcher uses Google Play's In-App Update feature, which lets Google Play tell the app whether a newer version is available and, if you choose to update, install it. This check is handled entirely by Google Play services — the app itself does not send any of your data as part of it.</p>
+
+            <p>SubWatcher also uses Firebase Analytics and Firebase Crashlytics (both Google services) to understand app usage and to receive automatic crash reports when something goes wrong, so problems can be found and fixed. These reports may include device information, general usage events, and crash details, but never the contents of your subscriptions — your subscription names, amounts, dates, and notes stay in the local database described above and are not included in analytics or crash reports.</p>
+
+            <p>SubWatcher shows a banner ad at the bottom of the main screen, served through Google AdMob. Where required by law (for example, in the EEA, UK, and Switzerland), SubWatcher asks for your consent to personalized advertising via Google's User Messaging Platform before requesting any ad; if you don't consent, or aren't shown a choice because it isn't legally required where you are, you'll still see ads, just less tailored to you. Showing an ad may involve AdMob using an advertising identifier and sharing limited technical data (such as device type and general location) with Google and its advertising partners, governed by Google's own privacy policy rather than this one. Beyond checking for updates, sending analytics and crash reports, and showing ads as described above, the app does not use any other third-party tracking services.</p>
+
+            <p>If a future version adds optional features such as cloud backup or notifications, this policy will be updated accordingly before those features are enabled.</p>
+
+            <p>If you have any questions about this policy, you can reach us using the contact details below.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">Contact: <a href="mailto:j7software@post.cz">j7software@post.cz</a></div>
+                <p class="copyright">&copy; 2026 J7Software. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
