@@ -9,75 +9,73 @@
         h1 { color: #000; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 30px; color: #444; }
         h3 { color: #555; margin-top: 20px; }
-        .cs-section { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin-top: 20px; }
         .contact { font-weight: bold; color: #000; }
         .highlight { background-color: #fff3cd; padding: 10px; border-left: 5px solid #ffeeba; margin: 15px 0; }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy / Zásady ochrany soukromí</h1>
-    <p><strong>Last updated / Poslední aktualizace:</strong> August 11, 2026</p>
+    <h1>Privacy Policy</h1>
+    <p><strong>Last updated:</strong> August 17, 2026</p>
 
     <section>
-        <h2>English (Full Privacy Policy)</h2>
         <p>This privacy policy is applicable to the <strong>Tchiki Mail</strong> app (hereinafter referred to as "Application") for mobile devices, which was developed by <strong>Jan Svoboda</strong> (hereinafter referred to as "Service Provider") as a Freemium service. This service is provided "AS IS".</p>
 
+        <h3>Data Controller</h3>
+        <p>Jan Svoboda (j7software) is the data controller responsible for this Application. Contact: <span class="contact">j7software@post.cz</span>.</p>
+
         <h3>Information Collection and Use</h3>
-        <p>The Application acquires the information you supply (e-mail address, credentials) to provide e-mail client functionality. The Service Provider may use the information to contact you with important notices.</p>
-        <p>The Application may collect certain information automatically, including the type of mobile device, unique device ID, IP address, and operating system for analytics and app stability purposes, subject to your consent as described below.</p>
+        <p>The Application processes the information you supply to connect your e-mail account(s) (e-mail address, credentials or OAuth tokens) solely to provide e-mail client functionality. This data is stored locally, encrypted, on your device and is not transmitted to the Service Provider's own servers.</p>
+        <p>The Application may collect certain technical information automatically — app version, device/OS type, country, and anonymized usage/session data — for analytics and app-stability purposes, subject to your consent as described below.</p>
 
         <h3>Data Encryption and Safety</h3>
-        <p>All data transmitted by the Application is encrypted in transit using industry-standard protocols (SSL/TLS) between your device and the e-mail service providers.</p>
+        <p>All data transmitted by the Application is encrypted in transit (TLS) between your device and your e-mail provider's servers. Locally stored account credentials are encrypted using AES-256.</p>
 
-        <h3>Third Party Access</h3>
-        <p>The Application utilizes third-party services. Below are the links to their Privacy Policies:</p>
+        <h3>Third-Party Services</h3>
+        <p>The Application integrates with the following third-party services, each governed by its own privacy policy:</p>
         <ul>
+            <li><a href="https://privacy.microsoft.com/privacystatement" target="_blank">Microsoft Identity Platform / Microsoft Graph API</a> (Outlook / Office 365 account access)</li>
             <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
-            <li><a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank">Google Play In-App Payments</a></li>
+            <li><a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank">Google Play Billing</a> (in-app subscriptions)</li>
             <li><a href="https://firebase.google.com/support/privacy/" target="_blank">Google Firebase Analytics</a></li>
             <li><a href="https://firebase.google.com/support/privacy/" target="_blank">Google Firebase Crashlytics</a></li>
+            <li><a href="https://developer.android.com/google/play/integrity" target="_blank">Google Play Integrity API</a> (app/device integrity verification)</li>
         </ul>
 
         <h3>Analytics and Crash Reporting</h3>
-        <p>On first launch, the Application asks for your consent before collecting any anonymous usage data (such as app sessions, device type, OS version and country) via Google Firebase Analytics. This data is used solely to improve the app experience. No personally identifiable information, e-mail content, or account credentials are collected. You can review or change your choice at any time in the app: <strong>Settings → About → "Share anonymous usage data"</strong>.</p>
-        <p>The Application uses Google Firebase Crashlytics to automatically report crash data in order to improve app stability. Crash reports contain technical information about the device and the state of the app at the time of the crash, but do not contain any personal data. Crash reporting is not subject to the analytics consent above, as it is necessary for the Service Provider's legitimate interest in maintaining a stable and secure app.</p>
+        <p>On first launch, the Application asks for your consent before collecting any anonymous usage data (such as app sessions, device type, OS version and country) via Google Firebase Analytics. This data does not include e-mail content, credentials, or any personally identifiable information. You can review or change your choice at any time in the app: <strong>Settings → About → "Share anonymous usage data"</strong>.</p>
+        <p>The Application uses Google Firebase Crashlytics to automatically report crash data in order to improve app stability. Crash reports contain technical diagnostic information about the device and app state at the time of the crash, but no personal data. Crash reporting is independent of the analytics consent above, based on the Service Provider's legitimate interest (Art. 6(1)(f) GDPR) in maintaining a stable and secure app.</p>
+
+        <h3>App Integrity Verification</h3>
+        <p>To protect against tampered or repackaged copies of the Application (anti-fraud / license verification), the Application uses the Google Play Integrity API. A device integrity signal is generated on your device and verified server-side by the Service Provider's Cloud Function. This process does not involve any personal data; verification results are logged for a limited period for fraud-monitoring purposes only.</p>
+
+        <h3>Data Retention</h3>
+        <ul>
+            <li>Locally stored account data (credentials, messages): kept until you remove the account or uninstall the App.</li>
+            <li>Analytics data: retained per Google Firebase's standard retention period, independent of the Service Provider.</li>
+            <li>Crash reports and integrity-check logs: retained for a limited period (typically up to 30 days) for debugging and fraud-monitoring purposes.</li>
+        </ul>
+
+        <h3>Your Rights (GDPR)</h3>
+        <p>If you are located in the European Economic Area, you have the right to access, correct, or delete your personal data, to restrict or object to its processing, and to data portability where applicable. You can exercise these rights by contacting <span class="contact">j7software@post.cz</span>. You also have the right to lodge a complaint with your local data-protection supervisory authority (in the Czech Republic: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank">www.uoou.cz</a>).</p>
 
         <h3>Account Deletion</h3>
         <div id="delete" class="highlight">
-            <p>Users can request deletion of their data by removing their e-mail account within the app settings or by uninstalling the Application. This process deletes all locally stored data, including credentials and messages.</p>
+            <p>Tchiki Mail does not operate its own user-account server — it connects to your existing e-mail provider. You can delete all data associated with the App at any time by removing your e-mail account in Settings, or by uninstalling the App. This immediately and permanently deletes all locally stored tokens, credentials, and messages from your device.</p>
         </div>
 
         <h3>Children's Privacy</h3>
-        <p>The Application does not address anyone under the age of 13. If the Service Provider discovers that a child under 13 has provided personal information, it will be immediately deleted.</p>
+        <p>The Application is not directed at children and is not intended for use by anyone below the applicable age of digital consent in their country of residence. If the Service Provider becomes aware that a child's personal data has been collected without appropriate consent, it will be deleted.</p>
+
+        <h3>International Data Transfers</h3>
+        <p>Some third-party providers listed above (Microsoft, Google) may process data on servers located outside the European Economic Area. Where this occurs, those providers rely on their own legally recognized data-transfer safeguards, as described in their respective privacy policies.</p>
+
+        <h3>Changes to This Policy</h3>
+        <p>The Service Provider may update this Privacy Policy from time to time. Continued use of the App after changes constitutes acceptance of the revised policy.</p>
 
         <h3>Contact</h3>
-        <p>If you have any questions, please contact: <span class="contact">j7software@post.cz</span>.</p>
+        <p>If you have any questions about this Privacy Policy, please contact: <span class="contact">j7software@post.cz</span>.</p>
     </section>
-
-    <div class="cs-section">
-        <h2>Česky (Stručný přehled)</h2>
-        <p>Aplikace <strong>Tchiki Mail</strong> od vývojáře <strong>Jan Svoboda (j7software)</strong> bere ochranu vašeho soukromí vážně.</p>
-        <ul>
-            <li><strong>E-maily a hesla:</strong> Aplikace je e-mailový klient. Vaše zprávy a přihlašovací údaje jsou zpracovávány pouze za účelem fungování aplikace přímo ve vašem zařízení. Neodesíláme je na žádné naše externí servery.</li>
-            <li><strong>Zabezpečení:</strong> Veškerá komunikace mezi aplikací a poštovními servery probíhá šifrovaně (SSL/TLS).</li>
-            <li><strong>Nákupy:</strong> Aplikace obsahuje možnost nákupu předplatného prostřednictvím systému Google Play.</li>
-            <li><strong>Data třetích stran:</strong> Aplikace využívá Google Play Services pro základní funkčnost.</li>
-            <li><strong>Analytika a stabilita:</strong> Při prvním spuštění se vás aplikace zeptá na souhlas, než začne sbírat anonymní data o používání (relace v appce, typ zařízení, verze OS a země) přes službu Firebase Analytics od společnosti Google. Data jsou anonymní, neobsahují obsah e-mailů ani přihlašovací údaje a slouží výhradně ke zlepšení aplikace. Svou volbu můžete kdykoliv změnit přímo v appce: <strong>Nastavení → O aplikaci → „Sdílet anonymní data o používání"</strong>.</li>
-            <li><strong>Hlášení pádů:</strong> Aplikace využívá službu Firebase Crashlytics od společnosti Google k automatickému hlášení pádů kvůli stabilitě appky. Tohle se odesílá vždy, bez ohledu na výše uvedený souhlas s analytikou — jde o oprávněný zájem provozovatele udržovat appku funkční a bezpečnou, hlášení neobsahuje osobní data.</li>
-        </ul>
-
-        <div class="highlight">
-            <h3>Smazání účtu a dat (Account Deletion)</h3>
-            <p>
-                Tchiki Mail je e-mailový klient a nespravuje vlastní uživatelské účty na serveru.
-                Pokud chcete smazat veškerá data spojená s používáním aplikace, stačí v nastavení aplikace <strong>odebrat svůj e-mailový účet</strong> nebo <strong>aplikaci odinstalovat</strong>.
-                Tím dojde k okamžitému a trvalému odstranění všech uložených přístupových tokenů, hesel a stažených zpráv z vašeho mobilního zařízení.
-            </p>
-        </div>
-
-        <p><strong>Kontakt:</strong> V případě dotazů nás kontaktujte na <span class="contact">j7software@post.cz</span>.</p>
-    </div>
 
     <footer style="margin-top: 40px; font-size: 0.8em; color: #888;">
         © 2026 Jan Svoboda (j7software)
