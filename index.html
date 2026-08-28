@@ -152,9 +152,6 @@
             background: rgba(0, 0, 0, 0.2);
         }
 
-        /* Shine sweep – jemný lesklý pruh přejíždějící přes ikonu appky při
-           najetí myší na kartu. Wrapper ořízne pruh do stejného zaoblení
-           jako ikona samotná. */
         .app-icon-wrap {
             position: relative;
             display: inline-block;
@@ -177,7 +174,6 @@
         @keyframes shine-sweep {
             100% { left: 135%; }
         }
-        
         
         .app-icon.placeholder {
             display: flex;
@@ -493,6 +489,27 @@
                     </div>
                 </div>
 
+                <!-- Volt Meter -->
+                <div class="app-card">
+                    <div class="app-details">
+                        <div class="app-header">
+                            <div class="app-icon-wrap"><img src="voltmetericon.png" alt="Volt Meter ikona" class="app-icon"></div>
+                            <h3>Volt Meter</h3>
+                        </div>
+                        <p class="app-tagline" id="txt-voltmeter-tag">Jednoduchý a přehledný měřič napětí a stavu baterie. Na rozdíl od jiných aplikací zobrazuje výhradně reálná naměřená data a nic neodhaduje.</p>
+                    </div>
+                    <div class="screenshots-container">
+                        <div class="screenshot-wrapper"><img src="voltmeter1.png" alt="Volt Meter" class="zoomable-img"></div>
+                        <div class="screenshot-wrapper"><img src="voltmeter2.png" alt="Volt Meter" class="zoomable-img"></div>
+                    </div>
+                    <div class="actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.voltmeter" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
+                        <a href="privacy_policy_voltmeter.html" target="_blank" class="privacy-link">Privacy Policy</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -530,6 +547,7 @@
                 sudoku_tag: "Relaxační a logická hra pro trénink vaší mysli.",
                 fuellytics_tag: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.",
                 subwatcher_tag: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.",
+                voltmeter_tag: "Jednoduchý a přehledný měřič napětí a stavu baterie. Na rozdíl od jiných aplikací zobrazuje výhradně reálná naměřená data a nic neodhaduje.",
                 status_soon: "Brzy k dispozici",
                 status_prep: "Připravuje se",
                 contact_label: "Kontakt:",
@@ -553,6 +571,7 @@
                 sudoku_tag: "A relaxing puzzle game to train your mind.",
                 fuellytics_tag: "Smart fuel, charging, and cost tracker for all your vehicles.",
                 subwatcher_tag: "Keeps an eye on your subscriptions and reminds you before the next payment.",
+                voltmeter_tag: "Simple and clear voltage and battery status monitor. Unlike other apps, it displays only real measured data with zero estimations.",
                 status_soon: "Coming Soon",
                 status_prep: "In Development",
                 contact_label: "Contact:",
@@ -583,6 +602,7 @@
             document.getElementById('txt-sudoku-tag').textContent = languages[lang].sudoku_tag;
             document.getElementById('txt-fuellytics-tag').textContent = languages[lang].fuellytics_tag;
             document.getElementById('txt-subwatcher-tag').textContent = languages[lang].subwatcher_tag;
+            document.getElementById('txt-voltmeter-tag').textContent = languages[lang].voltmeter_tag;
             
             const statusSoon = document.getElementById('txt-status-soon');
             if(statusSoon) statusSoon.textContent = languages[lang].status_soon;
