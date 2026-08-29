@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Volt Monitor</title>
+<style>
+  :root {
+    --accent: #FFC300;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5a5a5a;
+    --border: #e6e6e6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-size: 1.9rem;
+    margin: 0 0 6px;
+  }
+  header .updated {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2.4em;
+    margin-bottom: 0.6em;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 1.05rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.4em;
+    color: #333;
+  }
+  p { margin: 0.8em 0; }
+  ul, ol { margin: 0.6em 0; padding-left: 1.4em; }
+  li { margin: 0.3em 0; }
+  a { color: #0A66C2; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0 1.5em;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+  }
+  th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+  tr:nth-child(even) td { background: #fbfbfb; }
+  strong { color: #111; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0 1.4em;
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .contact-block {
+    background: #f9f6ec;
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<h1 id="privacy-policy-volt-monitor">Privacy Policy — Volt Monitor</h1>
+<p><strong>Last updated:</strong> August 29, 2026</p>
+<p>This Privacy Policy explains how J7Software (“we”, “us”, “our”)
+collects, uses, and protects information in connection with the
+<strong>Volt Monitor</strong> Android application (package name:
+<code>com.j7software.voltmonitor</code>), available on Google Play.</p>
+<p>If you do not agree with this policy, please do not use the app.</p>
+<h2 id="data-controller">1. Data Controller</h2>
+<p><strong>J7Software</strong> Email: j7software@post.cz Website:
+www.j7software.eu</p>
+<h2 id="what-data-the-app-collects">2. What Data the App Collects</h2>
+<p>Volt Monitor is designed around a principle of data honesty: it only
+displays values it can actually read from your device, and it stores as
+little as possible.</p>
+<h3 id="battery-data-read-directly-from-your-device">2.1 Battery data
+(read directly from your device)</h3>
+<p>The app reads the following values from Android’s system battery APIs
+whenever your battery status changes:</p>
+<ul>
+<li>Battery percentage</li>
+<li>Battery voltage</li>
+<li>Battery current</li>
+<li>Battery temperature</li>
+<li>Charging status and plug type (USB / AC / wireless)</li>
+<li>System-reported battery health</li>
+<li>Remaining battery capacity (charge counter)</li>
+</ul>
+<p>This data is used <strong>only</strong> to display live battery
+information, calculate charging/discharging estimates, detect charging
+sessions, and (optionally) show historical charts.</p>
+<h3 id="optional-background-history">2.2 Optional background
+history</h3>
+<p>If you enable “Record in background” in the History screen, the app
+stores battery samples locally on your device in a local database
+(Room/SQLite). This data:</p>
+<ul>
+<li><strong>Never leaves your device.</strong> It is not uploaded to us
+or to any server we control.</li>
+<li>Is automatically deleted after a retention period (30 days for the
+free version, 180 days if you purchase Volt Monitor Pro).</li>
+<li>Is deleted immediately if you uninstall the app.</li>
+<li>Can be disabled at any time via the same toggle.</li>
+</ul>
+<h3 id="device-diagnostics">2.3 Device diagnostics</h3>
+<p>The Settings screen shows technical information about your device
+(model, manufacturer, Android version, screen resolution, app version)
+for your own reference. This information is read live and displayed only
+within the app — it is not transmitted anywhere by us.</p>
+<h3 id="data-we-deliberately-do-not-collect-or-guess">2.4 Data we
+deliberately do NOT collect or guess</h3>
+<p>Consistent with our data-honesty principle, the app never invents or
+estimates values it cannot measure, including:</p>
+<ul>
+<li>Charging cycle count</li>
+<li>Battery manufacturing date</li>
+<li>Manufacturer-rated (“declared”) battery capacity beyond what a
+device optionally exposes via a non-public system API (shown clearly
+labeled as such, or as “Unavailable”)</li>
+<li>The actual negotiated charger voltage (e.g. USB-PD/Quick Charge
+input voltage)</li>
+</ul>
+<h3 id="information-we-do-not-access-at-all">2.5 Information we do not
+access at all</h3>
+<p>Volt Monitor does not request or access your location, contacts,
+photos, files, microphone, camera, or any other sensitive personal
+data.</p>
+<h2 id="third-party-services">3. Third-Party Services</h2>
+<p>To keep the app free, and to offer an optional paid upgrade, Volt
+Monitor integrates the following third-party services. These services
+operate under their own privacy policies and may independently collect
+and process certain technical data (such as advertising identifiers) in
+accordance with their own terms:</p>
+<h3 id="google-admob-advertising">3.1 Google AdMob (advertising)</h3>
+<p>The free version of the app displays “App Open” ads provided by
+Google AdMob when you return to the app from the background. AdMob may
+collect device identifiers and other technical data to serve and measure
+ads. Learn more: <a
+href="https://policies.google.com/technologies/partner-sites">How Google
+uses information from sites or apps that use our services</a>.</p>
+<p>Ads are not shown:</p>
+<ul>
+<li>If you have purchased Volt Monitor Pro.</li>
+<li>During your first few app launches.</li>
+<li>More than once within a short time window (frequency capping).</li>
+<li>Before you have provided the required privacy consent (see Section
+4).</li>
+</ul>
+<h3 id="google-play-billing-in-app-purchase">3.2 Google Play Billing
+(in-app purchase)</h3>
+<p>If you choose to purchase “Volt Monitor Pro” (a one-time,
+non-consumable purchase), the transaction is processed entirely by
+Google Play. We do not receive or store your payment details. Purchase
+status is verified directly with Google Play; a small local cache is
+kept only so the app can start up quickly and show your correct purchase
+status.</p>
+<h3 id="google-user-messaging-platform-ump">3.3 Google User Messaging
+Platform (UMP)</h3>
+<p>We use Google’s UMP SDK to obtain your consent for
+personalized/non-personalized advertising where required by law (see
+Section 4).</p>
+<p>Each of the above services is operated by Google LLC and is subject
+to Google’s own <a href="https://policies.google.com/privacy">Privacy
+Policy</a>.</p>
+<h2 id="your-consent-choices-gdpr-uk-switzerland">4. Your Consent
+Choices (GDPR / UK / Switzerland)</h2>
+<p>If you are located in the European Economic Area, the United Kingdom,
+or Switzerland, the app will show a consent form (via Google’s UMP SDK)
+before requesting any ads, asking for your consent to the use of
+cookies/local storage and personal data for advertising purposes, in
+line with the GDPR and the EU ePrivacy Directive.</p>
+<p>You can review or change your consent choices at any time from within
+the app: <strong>Settings → Permissions &amp; Privacy → Manage ad
+consent.</strong></p>
+<h2 id="permissions-used-by-the-app">5. Permissions Used by the App</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Permission</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Foreground service</td>
+<td>Required to run the optional background logging service</td>
+</tr>
+<tr class="even">
+<td>Foreground service (special use)</td>
+<td>Allows the background logging service to run continuously</td>
+</tr>
+<tr class="odd">
+<td>Post notifications</td>
+<td>Shows a persistent notification while background logging is active,
+and alerts about battery issues</td>
+</tr>
+<tr class="even">
+<td>Receive boot completed</td>
+<td>Restarts background logging after you restart your device, if it was
+previously enabled</td>
+</tr>
+<tr class="odd">
+<td>Internet</td>
+<td>Required by the advertising and billing SDKs</td>
+</tr>
+<tr class="even">
+<td>Access network state</td>
+<td>Required by the advertising SDK</td>
+</tr>
+</tbody>
+</table>
+<p>The app does not request any dangerous or sensitive Android
+permissions (location, contacts, storage, camera, microphone, etc.).</p>
+<h2 id="data-retention-and-deletion">6. Data Retention and Deletion</h2>
+<ul>
+<li>Live battery readings exist only in memory while the app is open and
+are not persisted unless background logging is on.</li>
+<li>Locally logged history is deleted automatically after 30 days (free)
+or 180 days (Pro), and immediately upon uninstalling the app.</li>
+<li>Since we do not operate our own servers that store your personal
+data, there is no remote copy of your data for us to delete on request —
+uninstalling the app (or disabling background logging and waiting for
+the retention period to pass) removes it completely from your
+device.</li>
+</ul>
+<h2 id="childrens-privacy">7. Children’s Privacy</h2>
+<p>Volt Monitor is not directed at children and we do not knowingly
+collect personal data from children. The app does not include any
+child-directed content or functionality.</p>
+<h2 id="your-rights">8. Your Rights</h2>
+<p>Depending on your jurisdiction (e.g. under the GDPR if you are in the
+EEA/UK), you may have rights to access, correct, delete, or restrict the
+processing of your personal data, and to object to processing based on
+legitimate interest. Because Volt Monitor stores your battery/history
+data only locally on your device, you can exercise most of these rights
+yourself directly in the app (disabling logging, clearing data, or
+uninstalling). For questions about data processed by third-party
+services (Google AdMob, Google Play Billing), please also refer to
+Google’s own privacy resources, or contact us and we will assist where
+we can.</p>
+<p>To contact us about any privacy matter, email:
+<strong>j7software@post.cz</strong></p>
+<h2 id="international-data-transfers">9. International Data
+Transfers</h2>
+<p>Where third-party services (Google AdMob, Google Play Billing, Google
+UMP) process data on our behalf, that data may be transferred to and
+processed in countries outside your own, including the United States,
+under Google’s own safeguards and policies.</p>
+<h2 id="changes-to-this-policy">10. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time, for example to
+reflect new app features or legal requirements. The “Last updated” date
+at the top of this page will indicate when changes were last made.
+Continued use of the app after changes take effect constitutes
+acceptance of the updated policy.</p>
+<h2 id="contact">11. Contact</h2>
+<p>If you have any questions about this Privacy Policy or how Volt
+Monitor handles data, please contact:</p>
+<p><strong>J7Software</strong> Email: j7software@post.cz Website:
+www.j7software.eu</p>
+<hr />
+<p><em>This document is provided as a general template and does not
+constitute legal advice. We recommend having it reviewed by a legal
+professional before publishing, especially to confirm compliance with
+the specific regulations applicable to the countries where the app is
+distributed.</em></p>
+</div>
+</body>
+</html>
