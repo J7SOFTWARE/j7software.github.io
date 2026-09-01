@@ -95,7 +95,7 @@
 <body>
 <div class="wrapper">
 <h1 id="privacy-policy-volt-monitor">Privacy Policy — Volt Monitor</h1>
-<p><strong>Last updated:</strong> August 29, 2026</p>
+<p><strong>Last updated:</strong> September 1, 2026</p>
 <p>This Privacy Policy explains how J7Software (“we”, “us”, “our”)
 collects, uses, and protects information in connection with the
 <strong>Volt Monitor</strong> Android application (package name:
@@ -160,6 +160,23 @@ access at all</h3>
 <p>Volt Monitor does not request or access your location, contacts,
 photos, files, microphone, camera, or any other sensitive personal
 data.</p>
+<h3 id="backup-and-restore">2.6 Backup and restore (Pro feature)</h3>
+<p>Volt Monitor Pro lets you export your locally stored history and
+measured capacity data to a single file, and import it back later (for
+example, after reinstalling the app or moving to a new phone). This
+feature:</p>
+<ul>
+<li>Is entirely user-initiated - the app never creates or uploads a
+backup on its own, in the background, or without you tapping the export
+button.</li>
+<li>Uses Android's built-in file picker (Storage Access Framework) to
+save and open the backup file, so the app does not require or request
+any storage permission.</li>
+<li>Saves the file only to the location you choose in that picker (e.g.
+your device's Downloads folder, or a cloud storage app you have
+installed) - we do not receive a copy, and the app itself does not
+transmit the file anywhere.</li>
+</ul>
 <h2 id="third-party-services">3. Third-Party Services</h2>
 <p>To keep the app free, and to offer an optional paid upgrade, Volt
 Monitor integrates the following third-party services. These services
@@ -246,6 +263,10 @@ previously enabled</td>
 <td>Access network state</td>
 <td>Required by the advertising SDK</td>
 </tr>
+<tr class="odd">
+<td>Ignore battery optimizations (optional, requested only if you tap the corresponding button in the app)</td>
+<td>Lets you optionally exempt the app from your device's battery optimization, so background logging is less likely to be stopped by the system on phones with aggressive battery management</td>
+</tr>
 </tbody>
 </table>
 <p>The app does not request any dangerous or sensitive Android
@@ -261,6 +282,9 @@ data, there is no remote copy of your data for us to delete on request —
 uninstalling the app (or disabling background logging and waiting for
 the retention period to pass) removes it completely from your
 device.</li>
+<li>If you export a backup file (see Section 2.6), that file is no
+longer subject to the app's automatic retention period once saved -
+it stays wherever you saved it until you delete it yourself.</li>
 </ul>
 <h2 id="childrens-privacy">7. Children’s Privacy</h2>
 <p>Volt Monitor is not directed at children and we do not knowingly
