@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CatchFi – Privacy Policy</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1b2433; --muted: #55627a; --line: #d5dbe6;
+    --accent: #1f4d78; --panel: #f3f6fb; --mark-bg: #fff3bf; --mark-fg: #5c4400;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1d3a; --fg: #e3ecf8; --muted: #9fb2cf; --line: #24406b;
+      --accent: #7cc4ff; --panel: #102a52; --mark-bg: #5a4a10; --mark-fg: #ffe9a0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 4px; color: var(--accent); }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; color: var(--accent); }
+  p, li { margin: .5rem 0; }
+  ul { padding-left: 1.3rem; }
+  .meta { color: var(--muted); font-size: .92rem; margin-bottom: 1rem; }
+  .summary {
+    background: var(--panel); border-left: 4px solid var(--accent);
+    padding: 12px 16px; border-radius: 4px; margin: 1rem 0;
+  }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; margin: .75rem 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--panel); }
+  mark { background: var(--mark-bg); color: var(--mark-fg); padding: 0 4px; border-radius: 3px; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+<section id="en" lang="en">
+  <h1>CatchFi – Privacy Policy</h1>
+  <p class="meta">App: CatchFi (<code>com.j7software.catchfi</code>) · Applies to version 1.4 and later · Last updated: September 22, 2026</p>
+
+  <div class="summary">
+    <strong>In short:</strong> Your findings history, GPS location and settings stay on your phone and are never transmitted. The app does show ads via Google AdMob, which processes some technical device data for that purpose — see section 5.
+  </div>
+
+  <h2>1. Who operates the app</h2>
+  <p>Operator: J7Software (<a href="https://www.j7software.eu">www.j7software.eu</a>)<br>
+  Contact: <a href="mailto:j7software@post.cz">j7software@post.cz</a></p>
+
+  <h2>2. What the app does</h2>
+  <p>CatchFi scans nearby Wi-Fi networks in the background and alerts you with a sound, vibration and a notification when an unsecured (open) network is in range. You start and stop scanning yourself, and a persistent notification is visible while it runs. In Settings (☰ MENU → About) you'll also find a link to our website and to this privacy policy – they open in your browser, and the app does not send anything anywhere by doing so.</p>
+
+  <h2>3. What data the app processes</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Data</th><th>Purpose</th><th>Where it is</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td>Nearby Wi-Fi networks: name (SSID), access point address (BSSID), security type and signal strength</td><td>Recognizing open networks and alerting you</td><td>In the phone's memory only, for the duration of a scan</td><td>On every scan (every 30 s while scanning is on)</td></tr>
+      <tr><td>Phone location</td><td>Android does not return Wi-Fi scan results without location permission. Optionally, also saving where a network was found.</td><td>The app does not track or store location itself, apart from the single exception below</td><td>See section 4</td></tr>
+      <tr><td>Findings history: time, SSID, BSSID, verified-internet flag</td><td>Your personal record of open networks found</td><td>In the app's private storage on your phone only</td><td>Only if you turn on “Save found networks to log” (off by default)</td></tr>
+      <tr><td>Last known location of a finding</td><td>Remembering where a network was found</td><td>In the app's private storage on your phone only</td><td>Only if you also turn on “Save GPS location” (off by default)</td></tr>
+      <tr><td>App settings</td><td>Remembering your choices</td><td>On your phone only</td><td>When you change a setting</td></tr>
+      <tr><td>Live on-screen log</td><td>Showing you what the app is doing</td><td>In memory only, max. 300 lines</td><td>Disappears when the app is closed</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Names and addresses of nearby networks are information about other people's equipment. The app does not send them anywhere and does not link them to your identity. The app has no user accounts and does not know your name, e-mail address or phone number.</p>
+
+  <h2>4. Location in detail</h2>
+  <ul>
+    <li>The app asks for <strong>precise location</strong> because Android requires it to read Wi-Fi scan results. This is a system restriction, not a choice made by the app. Before the system dialog, the app shows its own screen explaining why location is needed.</li>
+    <li>The app does <strong>not track your movements</strong>, does not build a route and does not transmit location.</li>
+    <li>Location is stored only if you turn on both saving of findings and saving of location: the last known location the phone already has is then saved with the finding (the app does not request a new fix).</li>
+    <li>The app does not use background location permission (<code>ACCESS_BACKGROUND_LOCATION</code>). Scanning runs as a foreground service with a visible notification, started by you.</li>
+  </ul>
+
+  <h2>5. Advertising (Google AdMob)</h2>
+  <p>The app shows ads through Google AdMob – banners on-screen and, occasionally, a full-screen ad after your own action (the "Test alarm" button, stopping a scan, or opening Settings; never right after a real open-network finding), at most once every 4 minutes. To deliver ads and manage their frequency, AdMob processes the following data about your device:</p>
+  <ul>
+    <li>the device's advertising identifier (Advertising ID) and other app/device identifiers;</li>
+    <li>technical device and network information (phone model, Android version, carrier, approximate IP address);</li>
+    <li>ad interactions (impressions, clicks) and diagnostic/performance data from the ad SDK.</li>
+  </ul>
+  <p>This data is processed by Google as an independent data controller, under Google's own privacy policy, not by CatchFi. It is not the same data as the findings history or location described in sections 3–4 above — AdMob does not receive those, because they are never passed to the ad SDK anywhere in the code.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>What Google provides</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr><td>How Google uses data from advertising products</td><td><a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a></td></tr>
+      <tr><td>Google Privacy Policy</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+      <tr><td>Turn off ad personalization (across your Google account)</td><td><a href="https://adssettings.google.com">adssettings.google.com</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Ads in the app are not targeted at children and the app is not directed at children (see section 12). If your device has no internet connection, the ad simply fails to load and the app otherwise works the same.</p>
+
+  <h2>6. Consent for advertising (GDPR)</h2>
+  <p>If you are in the European Economic Area, the UK, or another regulated region, the app shows a consent form (Google User Messaging Platform) on first launch, where you can choose to allow personalized ads, non-personalized ads only, or decline. Without an internet connection the form may not appear; in that case the last known choice applies, or ads may not load at all.</p>
+  <p>You can change your choice at any time in the app via <em>Menu → Privacy &amp; ads options</em> (the button only appears where relevant based on your detected region).</p>
+
+  <h2>7. Optional internet-access check</h2>
+  <p>If you leave “Verify internet access” turned on, the app asks Android to connect to a found open network to find out whether it provides working internet. Android usually asks you to confirm through a system dialog. If the phone connects:</p>
+  <ul>
+    <li>Android itself performs a connectivity check and may contact servers intended for that purpose (on most phones, servers operated by Google). This is done by the operating system, not by CatchFi.</li>
+    <li>While connected, the operator of that open network may be able to see your phone's traffic. Unsecured networks are prone to eavesdropping. If you do not want this, turn the verification off; open-network alerts also work without connecting.</li>
+  </ul>
+  <p>CatchFi <strong>does not send any data of its own</strong> during verification.</p>
+
+  <h2>8. Notifications, sound and vibration</h2>
+  <p>The notification and vibration permissions are used solely to show alerts on your own phone.</p>
+
+  <h2>9. Retention and deletion</h2>
+  <ul>
+    <li>You can delete the findings history (including any stored location) in the app: <em>Menu → Delete saved log</em>.</li>
+    <li>You can turn saving off at any time in the app settings.</li>
+    <li>Uninstalling the app deletes all of its data from your phone.</li>
+    <li>The history keeps at most 500 findings; older entries are overwritten.</li>
+  </ul>
+
+  <h2>10. Security</h2>
+  <p>App data is kept in the app's private storage, which Android protects from other apps. On a rooted phone or with physical access to an unlocked device this protection may not apply, so please secure your phone with a screen lock.</p>
+
+  <h2>11. Your rights</h2>
+  <p>Because the data stays exclusively on your phone and the operator has no access to it, the operator cannot look up, correct or delete it remotely; you control all of it directly in the app (see section 9). For questions about data processing, contact us at <a href="mailto:j7software@post.cz">j7software@post.cz</a>. You also have the right to lodge a complaint with a supervisory authority; in the Czech Republic this is the Office for Personal Data Protection (<a href="https://www.uoou.gov.cz">uoou.gov.cz</a>).</p>
+
+  <h2>12. Children</h2>
+  <p>The app is not directed at children. Ad units are not configured in AdMob as child-directed content, and the app is not actively marketed to children.</p>
+
+  <h2>13. Changes to this policy</h2>
+  <p>If the way data is processed changes (for example, if the app started transmitting data), we will update this policy before releasing such a version and show the date of the latest change at the top.</p>
+
+  <h2>14. Contact</h2>
+  <p>J7Software · <a href="https://www.j7software.eu">www.j7software.eu</a> · <a href="mailto:j7software@post.cz">j7software@post.cz</a></p>
+</section>
+
+</main>
+</body>
+</html>
