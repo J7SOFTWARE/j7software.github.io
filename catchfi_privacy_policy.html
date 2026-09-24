@@ -47,7 +47,7 @@
   <p class="meta">App: CatchFi (<code>com.j7software.catchfi</code>) · Applies to version 1.4 and later · Last updated: September 24, 2026</p>
 
   <div class="summary">
-    <strong>In short:</strong> Your findings history, GPS location and settings stay on your phone and are never transmitted. The app does show ads via Google AdMob, which processes some technical device data for that purpose — see section 5. An optional one-time purchase and app-update checks go through Google Play — see section 13.
+    <strong>In short:</strong> Your findings history, GPS location and settings stay on your phone and are never transmitted. The app does show ads via Google AdMob, which processes some technical device data for that purpose — see section 5. An optional one-time purchase and app-update checks go through Google Play — see section 13. You can also save the on-screen log or your findings history to a file yourself — see section 14.
   </div>
 
   <h2>1. Who operates the app</h2>
@@ -68,6 +68,7 @@
       <tr><td>Last known location of a finding</td><td>Remembering where a network was found</td><td>In the app's private storage on your phone only</td><td>Only if you also turn on “Save GPS location” (off by default)</td></tr>
       <tr><td>App settings</td><td>Remembering your choices</td><td>On your phone only</td><td>When you change a setting</td></tr>
       <tr><td>Live on-screen log</td><td>Showing you what the app is doing</td><td>In memory only, max. 300 lines</td><td>Disappears when the app is closed</td></tr>
+      <tr><td>File with the log or findings history (optional export)</td><td>Your own copy for your use</td><td>In the location you choose in Android's system file picker</td><td>Only when you tap Save / Export history and choose a location (see section 14)</td></tr>
     </tbody>
   </table>
   </div>
@@ -123,6 +124,7 @@
     <li>Open CatchFi → <em>☰ MENU → Settings</em> and tap <em>"✕ CLEAR SAVED LOG"</em> – this deletes the entire findings history, including any stored location, immediately and permanently.</li>
     <li>You can turn off saving the history (including location) entirely at any time using the toggle in Settings, without uninstalling the app.</li>
     <li>Uninstalling the app deletes all of its data from your phone (Android does this automatically).</li>
+    <li>Files you saved yourself using the export (section 14) are outside the app's private storage. Clearing the saved log or uninstalling the app does not delete them – delete them yourself, for example in your file manager.</li>
     <li>Without manual deletion, the app itself keeps at most the 500 most recent findings; older entries are automatically overwritten.</li>
   </ul>
   <p>Since none of this data is ever sent anywhere (see section 4), no separate "request" to us is needed – deletion happens instantly on your own device.</p>
@@ -140,10 +142,18 @@
   <p><strong>Removing ads (one-time purchase).</strong> The app offers a one-time, non-consumable in-app purchase that removes ads. The purchase is made and paid for entirely through Google Play (Google Play Billing). CatchFi never sees or stores your payment card details or Google account credentials. To unlock the purchase, the app asks Google Play on your device whether you own it, and Google Play answers. CatchFi has no server and no user account, so it does not keep any purchase record of its own. As the developer, the operator may see order information (such as order ID, product, date and country) in Google Play Console reports provided by Google, under Google's terms; this information is not linked to your findings history, Wi-Fi data or location. You can manage or request a refund for the purchase through Google Play.</p>
   <p><strong>Update check.</strong> The app can tell you when a newer version is available on Google Play, using Google's In-App Updates API. The check is performed by Google Play services on your device, and the download and installation are carried out by Google Play only after you tap the update button in the app. CatchFi itself downloads and installs nothing and sends no data of its own during this process. Google processes this communication under its own privacy policy (<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>).</p>
 
-  <h2>14. Changes to this policy</h2>
+  <h2>14. Saving your log or history to a file (optional)</h2>
+  <p>You can save the on-screen log (the <em>SAVE</em> button next to the log on the main screen) or your findings history (<em>☰ MENU → Settings → EXPORT HISTORY</em>) to a file on your phone. Before saving, the app shows a notice describing what the file contains, and then Android's system file picker opens, where you choose the folder and file name.</p>
+  <ul>
+    <li>The log file (.txt) contains the lines of the live log, including names (SSID) and addresses (BSSID) of nearby networks. The history file (.csv) contains the whole saved history: time, network name, network address (BSSID), a verified-internet flag and, if you had turned on saving of GPS location, the coordinates.</li>
+    <li>Saving happens only when you start it, one file at a time. The app does not save, upload or send the file anywhere by itself, and it does not request any storage permission for this – the file is written only to the location you choose in the system file picker.</li>
+    <li>Once saved, the file is an ordinary file on your phone. If you later open it in another app, send it or upload it (for example by e-mail or to a cloud storage), that is your decision and is governed by the terms of that app or service, not by CatchFi. Please keep in mind that a file with coordinates can show where you have been.</li>
+  </ul>
+
+  <h2>15. Changes to this policy</h2>
   <p>If the way data is processed changes (for example, if the app started transmitting data), we will update this policy before releasing such a version and show the date of the latest change at the top.</p>
 
-  <h2>15. Contact</h2>
+  <h2>16. Contact</h2>
   <p>J7Software · <a href="https://www.j7software.eu">www.j7software.eu</a> · <a href="mailto:j7software@post.cz">j7software@post.cz</a></p>
 </section>
 
