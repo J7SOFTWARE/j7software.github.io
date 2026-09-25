@@ -529,6 +529,27 @@
                     </div>
                 </div>
 
+                <!-- CatchFi -->
+                <div class="app-card">
+                    <div class="app-details">
+                        <div class="app-header">
+                            <div class="app-icon-wrap"><img src="catchficon.png" alt="CatchFi ikona" class="app-icon"></div>
+                            <h3>CatchFi</h3>
+                        </div>
+                        <p class="app-tagline" id="txt-catchfi-tag">Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.</p>
+                    </div>
+                    <div class="screenshots-container">
+                        <div class="screenshot-wrapper"><img src="catchfi1.png" alt="CatchFi" class="zoomable-img"></div>
+                        <div class="screenshot-wrapper"><img src="catchfi2.png" alt="CatchFi" class="zoomable-img"></div>
+                    </div>
+                    <div class="actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.j7software.catchfi" target="_blank" class="btn-play-img">
+                            <img src="googleplay.png" alt="Stáhnout z Google Play">
+                        </a>
+                        <a href="https://j7software.eu/catchfi_privacy_policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -567,6 +588,7 @@
                 fuellytics_tag: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.",
                 subwatcher_tag: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.",
                 voltmonitor_tag: "Sledování stavu baterie v reálném čase - napětí, proud, teplota i historie nabíjení, žádné vymyšlené hodnoty.",
+                catchfi_tag: "Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.",
                 status_soon: "Brzy k dispozici",
                 status_prep: "Připravuje se",
                 contact_label: "Kontakt:",
@@ -591,6 +613,7 @@
                 fuellytics_tag: "Smart fuel, charging, and cost tracker for all your vehicles.",
                 subwatcher_tag: "Keeps an eye on your subscriptions and reminds you before the next payment.",
                 voltmonitor_tag: "Real-time battery monitoring - voltage, current, temperature, and charging history, with zero invented numbers.",
+                catchfi_tag: "Scans nearby Wi-Fi networks in the background and alerts you when it finds an unsecured network in range.",
                 status_soon: "Coming Soon",
                 status_prep: "In Development",
                 contact_label: "Contact:",
@@ -622,7 +645,8 @@
             document.getElementById('txt-fuellytics-tag').textContent = languages[lang].fuellytics_tag;
             document.getElementById('txt-subwatcher-tag').textContent = languages[lang].subwatcher_tag;
             document.getElementById('txt-voltmonitor-tag').textContent = languages[lang].voltmonitor_tag;
-            
+            document.getElementById('txt-catchfi-tag').textContent = languages[lang].catchfi_tag;
+
             const statusSoon = document.getElementById('txt-status-soon');
             if(statusSoon) statusSoon.textContent = languages[lang].status_soon;
             const statusPrep = document.getElementById('txt-status-prep');
