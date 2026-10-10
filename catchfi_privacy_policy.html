@@ -44,7 +44,7 @@
 
 <section id="en" lang="en">
   <h1>CatchFi – Privacy Policy</h1>
-  <p class="meta">App: CatchFi (<code>com.j7software.catchfi</code>) · Applies to version 1.4 and later · Last updated: September 24, 2026</p>
+  <p class="meta">App: CatchFi (<code>com.j7software.catchfi</code>) · Applies to version 1.4 and later · Last updated: October 10, 2026</p>
 
   <div class="summary">
     <strong>In short:</strong> Your findings history, GPS location and settings stay on your phone and are never transmitted. The app does show ads via Google AdMob, which processes some technical device data for that purpose — see section 5. An optional one-time purchase and app-update checks go through Google Play — see section 13. You can also save the on-screen log or your findings history to a file yourself — see section 14.
@@ -105,15 +105,15 @@
 
   <h2>6. Consent for advertising (GDPR)</h2>
   <p>If you are in the European Economic Area, the UK, or another regulated region, the app shows a consent form (Google User Messaging Platform) on first launch, where you can choose to allow personalized ads, non-personalized ads only, or decline. Without an internet connection the form may not appear; in that case the last known choice applies, or ads may not load at all.</p>
-  <p>You can change your choice at any time in the app via <em>Menu → Privacy &amp; ads options</em> (the button only appears where relevant based on your detected region).</p>
+  <p>You can change your choice at any time in the app via <em>☰ MENU → Settings → PRIVACY &amp; ADS</em> (the button only appears where relevant based on your detected region).</p>
 
-  <h2>7. Optional internet-access check</h2>
-  <p>This feature is <strong>off by default</strong>. If you turn on “Verify internet access” (the app first explains what happens and asks you to confirm), the app asks Android to connect to a found open network to find out whether it provides working internet. Android usually asks you to confirm through a system dialog, and if several open networks are found they are checked one at a time. If the phone connects:</p>
+  <h2>7. Optional manual connection test</h2>
+  <p>This feature is <strong>off by default</strong>. If you turn on “Offer connection test” (the app first explains what happens and asks you to confirm), the app additionally offers a “Test connection” button whenever it finds an open network. <strong>The app itself never connects to any network.</strong> Tapping the button only opens Android's own Wi-Fi list, exactly as if you had opened it from your phone's settings, and you decide there whether to connect. After you return to the app, it only reads the phone's current connection state – whether you are connected to that network and whether Android reports working internet – and writes the result to the on-screen log. It does not request or initiate any connection on its own.</p>
   <ul>
-    <li>Android itself performs a connectivity check and may contact servers intended for that purpose (on most phones, servers operated by Google). This is done by the operating system, not by CatchFi.</li>
-    <li>While connected, the operator of that open network may be able to see your phone's traffic. Unsecured networks are prone to eavesdropping. If you do not want this, leave verification off; open-network alerts also work without connecting.</li>
+    <li>If you connect, Android itself performs its usual connectivity check and may contact servers intended for that purpose (on most phones, servers operated by Google). This is done by the operating system, not by CatchFi.</li>
+    <li>While connected, the operator of that open network may be able to see your phone's traffic. Unsecured networks are prone to eavesdropping. If you do not want this, simply do not connect or leave the toggle off; open-network alerts work the same without any test.</li>
   </ul>
-  <p>CatchFi <strong>does not send any data of its own</strong> during verification.</p>
+  <p>CatchFi <strong>does not send any data of its own</strong> during this test.</p>
 
   <h2>8. Notifications, sound and vibration</h2>
   <p>The notification and vibration permissions are used solely to show alerts on your own phone.</p>
@@ -143,7 +143,7 @@
   <p><strong>Update check.</strong> The app can tell you when a newer version is available on Google Play, using Google's In-App Updates API. The check is performed by Google Play services on your device, and the download and installation are carried out by Google Play only after you tap the update button in the app. CatchFi itself downloads and installs nothing and sends no data of its own during this process. Google processes this communication under its own privacy policy (<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>).</p>
 
   <h2>14. Saving your log or history to a file (optional)</h2>
-  <p>You can save the on-screen log (the <em>SAVE</em> button next to the log on the main screen) or your findings history (<em>☰ MENU → Settings → EXPORT HISTORY</em>) to a file on your phone. Before saving, the app shows a notice describing what the file contains, and then Android's system file picker opens, where you choose the folder and file name.</p>
+  <p>You can save the on-screen log (the <em>SAVE LOG</em> button next to the log on the main screen) or your findings history (<em>☰ MENU → Settings → EXPORT HISTORY</em>) to a file on your phone. Before saving, the app shows a notice describing what the file contains, and then Android's system file picker opens, where you choose the folder and file name.</p>
   <ul>
     <li>The log file (.txt) contains the lines of the live log, including names (SSID) and addresses (BSSID) of nearby networks. The history file (.csv) contains the whole saved history: time, network name, network address (BSSID), a verified-internet flag and, if you had turned on saving of GPS location, the coordinates.</li>
     <li>Saving happens only when you start it, one file at a time. The app does not save, upload or send the file anywhere by itself, and it does not request any storage permission for this – the file is written only to the location you choose in the system file picker.</li>
