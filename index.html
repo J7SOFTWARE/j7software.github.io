@@ -92,10 +92,10 @@ section.block{margin-bottom:5.5rem}
 .card p.desc{color:var(--muted);font-size:.95rem}
 
 .shots{display:flex;gap:.8rem;justify-content:center;align-items:center;background:rgba(0,0,0,.22);border-radius:16px;padding:.9rem}
-.shots .s{flex:1;max-width:150px;height:230px;display:flex;align-items:center;justify-content:center}
+.shots .s{flex:1 1 0;min-width:0;max-width:150px;height:230px;display:flex;align-items:center;justify-content:center}
 .shots.wide{flex-direction:column}
 .shots.wide .s{max-width:100%;width:100%;height:auto;aspect-ratio:16/9}
-.shots img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;cursor:zoom-in;transition:transform .2s}
+.shots img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;cursor:zoom-in;transition:transform .2s}
 .shots img:hover{transform:scale(1.04)}
 .apps .shots .s{height:200px;max-width:120px}
 
@@ -233,7 +233,7 @@ const T = {
 let lang = "cz";
 function card(x) {
   const name = (lang === "en" && x.name_en) || x.name;
-  const shots = x.shots.map(s => `<div class="s"><img src="${s}" alt="${name}" class="zoom" loading="lazy"></div>`).join("");
+  const shots = x.shots.map(s => `<div class="s"><img src="${s}" alt="${name}" class="zoom"></div>`).join("");
   const tags = (x.tags[lang] || []).map((t, i) => `<span class="tag${i === 0 ? " main" : ""}">${t}</span>`).join("");
   const action = x.soon
     ? `<span class="soon">${T[lang].soon}</span>`
