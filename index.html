@@ -1,777 +1,281 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J7Software | Moderní a bezpečné Android aplikace</title>
-    
-    <meta name="description" content="J7Software - Přetváříme nápady ve výkonné Android aplikace. Čistý kód, moderní vývoj, transparentní přístup a důraz na soukromí.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J7Software | Android aplikace a hry</title>
+<meta name="description" content="J7Software – moderní Android aplikace a hry. Čistý kód, transparentní přístup a důraz na soukromí.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#05070a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070a; --surface:rgba(20,28,46,.72); --line:rgba(255,255,255,.10);
+  --text:#f3f4f6; --muted:#9ca3af;
+  --app:#3ddc84; --app-glow:rgba(61,220,132,.14);
+  --game:#e3b45c; --game-glow:rgba(227,180,92,.14);
+  --max:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:-20% -10% auto;height:70vh;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 60% at 30% 30%,var(--game-glow),transparent 70%),radial-gradient(40% 60% at 75% 25%,var(--app-glow),transparent 70%)}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#0f0d17">
+/* lišta */
+nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(5,7,10,.72);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:1rem;height:64px}
+nav.top .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;letter-spacing:.02em}
+nav.top .brand img{height:30px;width:auto}
+nav.top .links{display:flex;gap:.3rem;margin-left:auto}
+nav.top .links a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem;padding:.45rem .8rem;border-radius:10px;transition:.2s}
+nav.top .links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.lang{display:flex;gap:4px;margin-left:.5rem}
+.lang button{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);padding:5px 10px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:inherit}
+.lang button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+/* úvod */
+header.hero{text-align:center;padding:5.5rem 0 3.5rem}
+.hero .logo{max-width:520px;width:100%;height:auto;margin-bottom:2rem;filter:drop-shadow(0 0 40px rgba(255,255,255,.08))}
+.hero p{color:var(--muted);font-size:clamp(1.02rem,2.4vw,1.2rem);max-width:640px;margin:0 auto 2.4rem}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:720px;margin:0 auto}
+.choose a{display:block;text-decoration:none;padding:1.6rem 1.4rem;border-radius:22px;border:1px solid var(--line);background:var(--surface);backdrop-filter:blur(10px);text-align:left;transition:.25s}
+.choose a:hover{transform:translateY(-4px)}
+.choose .k{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.choose .t{font-size:1.6rem;font-weight:800;margin:.2rem 0}
+.choose .d{color:var(--muted);font-size:.93rem}
+.choose a.games{border-color:rgba(227,180,92,.35)} .choose a.games .k{color:var(--game)} .choose a.games:hover{box-shadow:0 14px 40px var(--game-glow);border-color:var(--game)}
+.choose a.apps{border-color:rgba(61,220,132,.35)} .choose a.apps .k{color:var(--app)} .choose a.apps:hover{box-shadow:0 14px 40px var(--app-glow);border-color:var(--app)}
 
-    <style>
-        :root {
-            --bg: #05070a;
-            --card-bg: rgba(22, 32, 54, 0.75);
-            --card-border: rgba(255, 255, 255, 0.12);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #3ddc84;
-            --accent-glow: rgba(61, 220, 132, 0.12);
-            --max-width: 1100px;
-        }
+/* hodnoty */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0 5rem}
+.values div{padding:1.3rem 1.4rem;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.values h3{font-size:1rem;margin-bottom:.3rem}
+.values p{color:var(--muted);font-size:.9rem}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+/* sekce */
+section.block{margin-bottom:5.5rem}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem}
+.sec-head h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:800}
+.sec-head .count{color:var(--muted);font-weight:600}
+.sec-head::after{content:'';flex:1;height:1px;background:var(--line)}
+#games .sec-head h2{color:var(--game)} #apps .sec-head h2{color:var(--app)}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            position: relative;
-            padding: 0 1rem;
-        }
+.grid{display:grid;gap:1.6rem}
+.grid.games{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.grid.apps{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 
-        body::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(5,7,10,0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
+.card{background:var(--surface);border:1px solid var(--line);backdrop-filter:blur(12px);border-radius:24px;padding:1.6rem;display:flex;flex-direction:column;gap:1.1rem;transition:.3s;opacity:0;transform:translateY(16px)}
+.card.in{opacity:1;transform:none}
+.card:hover{transform:translateY(-4px)}
+.games .card:hover{border-color:rgba(227,180,92,.45);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 0 1px rgba(227,180,92,.08)}
+.apps .card:hover{border-color:rgba(61,220,132,.4);box-shadow:0 18px 45px rgba(0,0,0,.45)}
+.card-head{display:flex;align-items:center;gap:.9rem}
+.icon{position:relative;flex-shrink:0;width:56px;height:56px;border-radius:14px;overflow:hidden;background:rgba(0,0,0,.25)}
+.icon img{width:100%;height:100%;object-fit:cover;display:block}
+.icon::after{content:'';position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg)}
+.card:hover .icon::after{animation:shine 1s ease forwards}
+@keyframes shine{to{left:140%}}
+.card h3{font-size:1.3rem;font-weight:700;line-height:1.25}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.games .tag.main{color:var(--game);border-color:rgba(227,180,92,.4)}
+.apps .tag.main{color:var(--app);border-color:rgba(61,220,132,.4)}
+.card p.desc{color:var(--muted);font-size:.95rem}
 
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-            z-index: 100;
-        }
+.shots{display:flex;gap:.8rem;justify-content:center;align-items:center;background:rgba(0,0,0,.22);border-radius:16px;padding:.9rem}
+.shots .s{flex:1;max-width:150px;height:230px;display:flex;align-items:center;justify-content:center}
+.shots.wide{flex-direction:column}
+.shots.wide .s{max-width:100%;width:100%;height:auto;aspect-ratio:16/9}
+.shots img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;cursor:zoom-in;transition:transform .2s}
+.shots img:hover{transform:scale(1.04)}
+.apps .shots .s{height:200px;max-width:120px}
 
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text-muted);
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:1rem}
+.play img{height:50px;width:auto;display:block;transition:transform .2s,filter .2s}
+.play:hover img{transform:scale(1.04);filter:brightness(1.12)}
+.soon{font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--game);border:1px dashed rgba(227,180,92,.5);padding:.55rem .9rem;border-radius:10px}
+.privacy{color:var(--muted);font-size:.8rem}
+.privacy:hover{color:#fff}
 
-        .lang-btn:hover {
-            border-color: rgba(61, 220, 132, 0.3);
-            color: #fff;
-        }
+footer{border-top:1px solid var(--line);padding:3.5rem 0;background:#030508;text-align:center}
+footer .contact{margin-bottom:.8rem}
+footer .contact a{color:var(--muted);text-decoration:none;font-weight:600}
+footer .contact a:hover{color:#fff}
+footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 
-        .lang-btn.active {
-            background: var(--accent);
-            color: #05070a;
-            border-color: var(--accent);
-        }
+.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(3,5,8,.92);backdrop-filter:blur(8px);justify-content:center;align-items:center;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92%;max-height:88vh;object-fit:contain;border-radius:12px}
+.lightbox .x{position:absolute;top:16px;right:26px;font-size:40px;color:#fff;cursor:pointer;line-height:1}
 
-        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1rem; }
-
-        header { padding: 6rem 0 4rem 0; text-align: center; }
-        
-        .logo-main { 
-            max-width: 580px; 
-            width: 100%; 
-            height: auto; 
-            object-fit: contain; 
-            margin-bottom: 2.5rem; 
-            filter: drop-shadow(0 0 35px rgba(61, 220, 132, 0.18)); 
-        }
-        .subtitle { font-size: clamp(1.05rem, 2.5vw, 1.25rem); color: var(--text-muted); max-width: 650px; margin: 0 auto; font-weight: 400; }
-
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
-        .feature-item { background: var(--card-bg); border: 1px solid var(--card-border); backdrop-filter: blur(10px); padding: 1.8rem; border-radius: 20px; }
-        .feature-item h3 { color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .feature-item p { color: var(--text-muted); font-size: 0.95rem; }
-
-        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.75rem; }
-        .section-title::after { content: ''; flex-grow: 1; height: 1px; background: rgba(255, 255, 255, 0.1); }
-
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-bottom: 6rem; }
-
-        @media (max-width: 950px) {
-            .apps-grid { grid-template-columns: 1fr; }
-        }
-
-        .app-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--card-border); 
-            backdrop-filter: blur(12px); 
-            border-radius: 24px; 
-            padding: 2rem; 
-            display: flex; 
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-        }
-        
-        .app-card:hover { 
-            border-color: rgba(61, 220, 132, 0.25); 
-            background: rgba(13, 19, 33, 0.6); 
-            transform: translateY(-3px); 
-        }
-
-        .app-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-icon {
-            width: 48px;
-            height: 48px;
-            object-fit: cover;
-            border-radius: 10px; 
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .app-icon-wrap {
-            position: relative;
-            display: inline-block;
-            flex-shrink: 0; /* ikona se nezužuje, když se dlouhý název zalomí (např. Pippin's Quest na telefonu) */
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .app-icon-wrap::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 45%;
-            height: 100%;
-            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-            transform: skewX(-20deg);
-        }
-        .app-card:hover .app-icon-wrap::after {
-            animation: shine-sweep 1s ease forwards;
-        }
-        @keyframes shine-sweep {
-            100% { left: 135%; }
-        }
-        
-        .app-icon.placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .app-details h3 { font-size: 1.6rem; font-weight: 700; color: #fff; transition: color 0.2s; }
-        .app-card:hover .app-details h3 { color: var(--accent); }
-        .app-tagline { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; min-height: 48px; }
-
-        .screenshots-container { 
-            display: flex; 
-            gap: 1rem; 
-            justify-content: center; 
-            align-items: center; 
-            background: rgba(0, 0, 0, 0.2); 
-            border-radius: 16px; 
-            padding: 1rem; 
-            margin-bottom: 1.5rem;
-            min-height: 240px;
-        }
-
-        /*
-          OPRAVA (screenshoty jiné velikosti u stejné karty, např. QRadox):
-          Wrapper má teď PEVNOU výšku, takže "object-fit: contain" na obrázku
-          má konečně co dělat – každý screenshot se sám zmenší/zvětší, aby se
-          vešel do stejného rámečku, bez ohledu na to, jaký přesně má poměr
-          stran nebo kolik má kolem sebe průhledného okraje v souboru PNG.
-          Dřív bylo `width: 100%; height: auto`, takže výška každého obrázku
-          závisela čistě na jeho vlastním souboru – dva screenshoty s různým
-          poměrem stran pak vypadaly různě velké, i když box byl stejný.
-        */
-        .screenshot-wrapper {
-            flex: 1;
-            max-width: 140px;
-            height: 220px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .screenshot-placeholder {
-            width: 120px;
-            height: 220px;
-            background: rgba(255,255,255,0.03);
-            border: 1px dashed rgba(255,255,255,0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.2);
-            font-size: 0.8rem;
-        }
-        
-        .screenshot-wrapper img { 
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain; 
-            border-radius: 4px; 
-            cursor: zoom-in; 
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .screenshot-wrapper img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-
-        /* Karta s obrázky na šířku (hry v landscape, např. Pippin's Quest): obrázky pod sebou přes celou šířku karty. */
-        .screenshots-container.landscape {
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        .screenshots-container.landscape .screenshot-wrapper {
-            flex: none;
-            width: 100%;
-            max-width: 360px;
-            height: auto;
-            aspect-ratio: 16 / 9;
-        }
-
-        .actions { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 0.5rem; }
-        
-        .btn-play-img {
-            display: inline-block;
-            transition: transform 0.2s ease, filter 0.2s ease;
-            vertical-align: middle;
-        }
-        .btn-play-img img {
-            height: 54px; 
-            width: auto;
-            display: block;
-        }
-        .btn-play-img:hover {
-            transform: scale(1.04);
-            filter: brightness(1.12);
-        }
-        
-        .status-badge { color: rgba(255, 255, 255, 0.3); font-size: 0.9rem; font-weight: 500; }
-        .privacy-link { color: var(--text-muted); font-size: 0.8rem; text-decoration: underline; transition: color 0.2s; }
-        .privacy-link:hover { color: var(--accent); }
-
-        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 4rem 0; background: #030508; }
-        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; text-align: center; }
-        .contact-info { font-size: 0.95rem; color: var(--text-main); }
-        .contact-info a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        .contact-info a:hover { color: var(--accent); }
-        .copyright { font-size: 0.8rem; color: rgba(255, 255, 255, 0.25); }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(3, 5, 8, 0.9);
-            backdrop-filter: blur(8px);
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .lightbox.active { display: flex; opacity: 1; }
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 85vh;
-            object-fit: contain;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 10px;
-        }
-        .lightbox.active .lightbox-content { transform: scale(1); }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; user-select: none; }
-
-        @media (max-width: 480px) {
-            .screenshots-container { flex-direction: column; gap: 1.5rem; }
-            .screenshot-wrapper { max-width: 160px; }
-            .screenshots-container.landscape .screenshot-wrapper { max-width: 100%; }
-            .actions { flex-direction: column; gap: 1.2rem; text-align: center; }
-            .lang-switcher { top: 10px; right: 10px; }
-        }
-    </style>
+@media (max-width:760px){
+  nav.top .links{display:none}
+  .lang{margin-left:auto}
+  header.hero{padding:3.5rem 0 2.5rem}
+  .choose{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr}
+  .grid.games,.grid.apps{grid-template-columns:1fr}
+  .actions{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
-    <div class="lang-switcher">
-        <button class="lang-btn" id="btn-cz" onclick="switchLanguage('cz')">CZ</button>
-        <button class="lang-btn" id="btn-en" onclick="switchLanguage('en')">EN</button>
+<nav class="top"><div class="wrap">
+  <a class="brand" href="#"><img src="logo.png" alt="J7Software"></a>
+  <div class="links"><a href="#games" data-t="nav_games">Hry</a><a href="#apps" data-t="nav_apps">Aplikace</a><a href="#contact" data-t="nav_contact">Kontakt</a></div>
+  <div class="lang"><button id="btn-cz" onclick="setLang('cz')">CZ</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+</div></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <img src="logo.png" alt="J7Software" class="logo">
+    <p data-t="subtitle">Tvoříme Android hry a aplikace s důrazem na čistý kód, soukromí a férový přístup.</p>
+    <div class="choose">
+      <a class="games" href="#games"><div class="k" data-t="k_games">Hrajte</div><div class="t" data-t="nav_games">Hry</div><div class="d" data-t="d_games">Detektivky, plošinovky a logické hry bez reklam.</div></a>
+      <a class="apps" href="#apps"><div class="k" data-t="k_apps">Používejte</div><div class="t" data-t="nav_apps">Aplikace</div><div class="d" data-t="d_apps">Praktické nástroje, které respektují vaše soukromí.</div></a>
     </div>
+  </header>
 
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="J7Software" class="logo-main">
-            <p class="subtitle" id="txt-subtitle">Přetváříme nápady ve výkonné Android aplikace. Moderní vývoj s nekompromisním důrazem na čistotu kódu a soukromí uživatelů.</p>
-        </header>
+  <div class="values">
+    <div><h3 data-t="v1t">Transparentní přístup</h3><p data-t="v1d">Žádné skryté háčky. Jasně říkáme, jak aplikace fungují a jaká oprávnění potřebují.</p></div>
+    <div><h3 data-t="v2t">Moderní vývoj</h3><p data-t="v2d">Nativní Android a nejnovější technologie. Rychlost, stabilita a skvělá optimalizace.</p></div>
+    <div><h3 data-t="v3t">Vaše data pod kontrolou</h3><p data-t="v3d">Co je vaše, zůstává ve vašem zařízení nebo pod vaší přímou správou.</p></div>
+  </div>
 
-        <section class="features-grid">
-            <div class="feature-item">
-                <h3 id="txt-f1-title">Transparentní přístup</h3>
-                <p id="txt-f1-desc">Žádné skryté háčky. Jasně deklarujeme, jak aplikace fungují a jaká oprávnění k běhu skutečně potřebují.</p>
-            </div>
-            <div class="feature-item">
-                <h3 id="txt-f2-title">Moderní architektura</h3>
-                <p id="txt-f2-desc">Stavíme na nejnovějších technologiích a nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.</p>
-            </div>
-            <div class="feature-item">
-                <h3 id="txt-f3-title">Vaše data pod kontrolou</h3>
-                <p id="txt-f3-desc">Respektujeme digitální soukromí. Co je vaše, to zůstává v bezpečí vašeho zařízení nebo pod vaší přímou správou.</p>
-            </div>
-        </section>
+  <section class="block" id="games">
+    <div class="sec-head"><h2 data-t="nav_games">Hry</h2><span class="count" id="games-count"></span></div>
+    <div class="grid games" id="games-grid"></div>
+  </section>
 
-        <section>
-            <h2 class="section-title" id="txt-section-projects">Naše projekty</h2>
-            <div class="apps-grid">
+  <section class="block" id="apps">
+    <div class="sec-head"><h2 data-t="nav_apps">Aplikace</h2><span class="count" id="apps-count"></span></div>
+    <div class="grid apps" id="apps-grid"></div>
+  </section>
+</div>
 
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="focalicon.png" alt="FocalFreeze ikona" class="app-icon"></div>
-                            <h3>FocalFreeze</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-focal-tag">Chytrá lupa s přisvícením pro čtení drobného textu.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="focalfreeze1.png" alt="FocalFreeze" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="focalfreeze2.png" alt="FocalFreeze" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.focalfreeze" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="privacy_policy_focalfreeze.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
+<footer id="contact"><div class="wrap">
+  <div class="contact"><span data-t="contact">Kontakt:</span> <a href="#" id="mail" onclick="showMail(event)" data-t="contact_btn">Zobrazit e-mail</a></div>
+  <div class="copy">&copy; 2026 J7Software. <span data-t="rights">Všechna práva vyhrazena.</span></div>
+</div></footer>
 
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="tchikiicon.png" alt="TchikiMail ikona" class="app-icon"></div>
-                            <h3>TchikiMail</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-tchiki-tag">Rychlý, bezpečný a nezávislý e-mailový klient.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="tchiki1.png" alt="TchikiMail" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="tchiki2.png" alt="TchikiMail" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.emailapp" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.github.io/privacy.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="x">&times;</span><img id="lightbox-img" alt=""></div>
 
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="rave.png" alt="Raven File Manager ikona" class="app-icon"></div>
-                            <h3>Raven File Manager</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-raven-tag">Přehledný a výkonný správce souborů pro váš Android.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="raven1.png" alt="Raven File Manager" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="raven2.png" alt="Raven File Manager" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.ravenfilemanager" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.github.io/raven-privacy.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-                
-                <!-- QRadox -->
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="qradoxicon.png" alt="QRadox ikona" class="app-icon"></div>
-                            <h3>QRadox</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-qradox-tag">Rychlý a spolehlivý skener QR kódů a čárových kódů.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="qradox1.png" alt="QRadox" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="qradox2.png" alt="QRadox" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.qradox" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.github.io/QRadox_privacy_policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
+<script>
+const PLAY = id => `https://play.google.com/store/apps/details?id=${id}`;
+// hry: wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
+const GAMES = [
+  { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "falkicon.png", shots: ["falk1.png","falk2.png"], soon: true,
+    play: PLAY("com.j7software.inspektorfalk1"), privacy: "privacy-policy-inspektorfalk.html",
+    tags: { cz: ["Detektivka", "Zdarma na zkoušku"], en: ["Mystery", "Free to try"] },
+    cz: "Praha 1936. Vyslýchej podezřelé, skládej stopy a odhal vraha, který zastavil čas. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
+    en: "Prague, 1936. Interrogate suspects, piece the clues together and unmask the killer who stopped time. The beginning is free, a one-time purchase unlocks the full case – no ads." },
+  { name: "Pippin’s Quest: Lost Treasure", icon: "pippinicon.png", shots: ["pippin1.png","pippin2.png"], wide: true,
+    play: PLAY("com.j7software.pippin"), privacy: "privacy-policy-pippin.html",
+    tags: { cz: ["Plošinovka", "Pro děti"], en: ["Platformer", "For kids"] },
+    cz: "Pohádková plošinovka pro děti – pomoz malému Pippinovi získat zpět ukradený poklad trpaslíků. První 2 levely zdarma, celou hru odemkne jednorázový nákup – bez reklam.",
+    en: "A fairy-tale platformer for kids – help little Pippin win back the dwarves' stolen treasure. The first 2 levels are free, a one-time purchase unlocks the full game – no ads." },
+  { name: "Sudoku Garden", icon: "sudokuicon.png", shots: ["sudoku1.png","sudoku2.png"],
+    play: PLAY("com.j7software.sudoku"), privacy: "https://j7software.github.io/Sudoku_privacy_policy.html",
+    tags: { cz: ["Logická hra"], en: ["Puzzle"] },
+    cz: "Relaxační a logická hra pro trénink vaší mysli.", en: "A relaxing puzzle game to train your mind." },
+];
+const APPS = [
+  { name: "FocalFreeze", icon: "focalicon.png", shots: ["focalfreeze1.png","focalfreeze2.png"], play: PLAY("com.j7software.focalfreeze"), privacy: "privacy_policy_focalfreeze.html",
+    tags: { cz: ["Nástroj"], en: ["Tool"] }, cz: "Chytrá lupa s přisvícením pro čtení drobného textu.", en: "Smart magnifier with flashlight for reading small text." },
+  { name: "TchikiMail", icon: "tchikiicon.png", shots: ["tchiki1.png","tchiki2.png"], play: PLAY("com.j7software.emailapp"), privacy: "https://j7software.github.io/privacy.html",
+    tags: { cz: ["Komunikace"], en: ["Communication"] }, cz: "Rychlý, bezpečný a nezávislý e-mailový klient.", en: "A fast, secure, and independent email client." },
+  { name: "Raven File Manager", icon: "rave.png", shots: ["raven1.png","raven2.png"], play: PLAY("com.j7software.ravenfilemanager"), privacy: "https://j7software.github.io/raven-privacy.html",
+    tags: { cz: ["Soubory"], en: ["Files"] }, cz: "Přehledný a výkonný správce souborů pro váš Android.", en: "A clean and powerful file manager for your Android device." },
+  { name: "QRadox", icon: "qradoxicon.png", shots: ["qradox1.png","qradox2.png"], play: PLAY("com.j7software.qradox"), privacy: "https://j7software.github.io/QRadox_privacy_policy.html",
+    tags: { cz: ["Skener"], en: ["Scanner"] }, cz: "Rychlý a spolehlivý skener QR kódů a čárových kódů.", en: "Fast and reliable QR code and barcode scanner." },
+  { name: "Audio Recorder", icon: "audiorecorderikona.png", shots: ["audio1.png","audio2.png"], play: PLAY("com.j7software.audiorecorder"), privacy: "https://j7software.github.io/privacy_policy_audio.txt",
+    tags: { cz: ["Zvuk"], en: ["Audio"] }, cz: "Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.", en: "A user-friendly audio recording application with easy sharing options." },
+  { name: "Fuellytics", icon: "fuellyticsicon.png", shots: ["fuellytics1.png","fuellytics2.png"], play: PLAY("com.j7software.fuellytics"), privacy: "fuellytics-privacy-en.html",
+    tags: { cz: ["Auto"], en: ["Car"] }, cz: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.", en: "Smart fuel, charging, and cost tracker for all your vehicles." },
+  { name: "SubWatcher", icon: "subwatchericon.png", shots: ["subwatcher1.png","subwatcher2.png"], play: PLAY("com.j7software.subwatcher"), privacy: "privacy_policy_subwatcher.html",
+    tags: { cz: ["Finance"], en: ["Finance"] }, cz: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.", en: "Keeps an eye on your subscriptions and reminds you before the next payment." },
+  { name: "Volt Monitor", icon: "voltmonitoricon.png", shots: ["voltmonitor1.png","voltmonitor2.png"], play: PLAY("com.j7software.voltmonitor"), privacy: "privacy-policy-voltmonitor.html",
+    tags: { cz: ["Baterie"], en: ["Battery"] }, cz: "Sledování stavu baterie v reálném čase – napětí, proud, teplota i historie nabíjení, žádné vymyšlené hodnoty.", en: "Real-time battery monitoring – voltage, current, temperature, and charging history, with zero invented numbers." },
+  { name: "CatchFi", icon: "catchficon.png", shots: ["catchfi1.png","catchfi2.png"], play: PLAY("com.j7software.catchfi"), privacy: "https://j7software.eu/catchfi_privacy_policy.html",
+    tags: { cz: ["Wi-Fi", "Bezpečnost"], en: ["Wi-Fi", "Security"] }, cz: "Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.", en: "Scans nearby Wi-Fi networks in the background and alerts you when it finds an unsecured network in range." },
+];
 
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="audiorecorderikona.png" alt="Audio Recorder ikona" class="app-icon"></div>
-                            <h3>Audio Recorder</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-audio-tag">Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="audio1.png" alt="Audio Recorder" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="audio2.png" alt="Audio Recorder" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.audiorecorder" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.github.io/privacy_policy_audio.txt" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
+const T = {
+  cz: { nav_games:"Hry", nav_apps:"Aplikace", nav_contact:"Kontakt", k_games:"Hrajte", k_apps:"Používejte",
+    subtitle:"Tvoříme Android hry a aplikace s důrazem na čistý kód, soukromí a férový přístup.",
+    d_games:"Detektivky, plošinovky a logické hry bez reklam.", d_apps:"Praktické nástroje, které respektují vaše soukromí.",
+    v1t:"Transparentní přístup", v1d:"Žádné skryté háčky. Jasně říkáme, jak aplikace fungují a jaká oprávnění potřebují.",
+    v2t:"Moderní vývoj", v2d:"Nativní Android a nejnovější technologie. Rychlost, stabilita a skvělá optimalizace.",
+    v3t:"Vaše data pod kontrolou", v3d:"Co je vaše, zůstává ve vašem zařízení nebo pod vaší přímou správou.",
+    soon:"Brzy na Google Play", play_alt:"Stáhnout z Google Play", contact:"Kontakt:", contact_btn:"Zobrazit e-mail", rights:"Všechna práva vyhrazena.",
+    count: n => n + (n === 1 ? " položka" : n < 5 ? " položky" : " položek") },
+  en: { nav_games:"Games", nav_apps:"Apps", nav_contact:"Contact", k_games:"Play", k_apps:"Use",
+    subtitle:"We build Android games and apps with a focus on clean code, privacy and a fair approach.",
+    d_games:"Mysteries, platformers and puzzle games with no ads.", d_apps:"Practical tools that respect your privacy.",
+    v1t:"Transparent Approach", v1d:"No hidden catches. We clearly say how our apps work and what permissions they need.",
+    v2t:"Modern Development", v2d:"Native Android and the latest technologies. Speed, stability and excellent optimization.",
+    v3t:"Your Data Under Control", v3d:"What is yours stays on your device or under your direct management.",
+    soon:"Coming soon to Google Play", play_alt:"Get it on Google Play", contact:"Contact:", contact_btn:"Show email", rights:"All rights reserved.",
+    count: n => n + (n === 1 ? " item" : " items") },
+};
 
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="sudokuicon.png" alt="Sudoku Garden ikona" class="app-icon"></div>
-                            <h3>Sudoku Garden</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-sudoku-tag">Relaxační a logická hra pro trénink vaší mysli.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="sudoku1.png" alt="Sudoku Garden" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="sudoku2.png" alt="Sudoku Garden" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.sudoku" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.github.io/Sudoku_privacy_policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="fuellyticsicon.png" alt="Fuellytics ikona" class="app-icon"></div>
-                            <h3>Fuellytics</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-fuellytics-tag">Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="fuellytics1.png" alt="Fuellytics" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="fuellytics2.png" alt="Fuellytics" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.fuellytics" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="fuellytics-privacy-en.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="subwatchericon.png" alt="SubWatcher ikona" class="app-icon"></div>
-                            <h3>SubWatcher</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-subwatcher-tag">Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="subwatcher1.png" alt="SubWatcher" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="subwatcher2.png" alt="SubWatcher" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.subwatcher" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="privacy_policy_subwatcher.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- Volt Meter -->
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="voltmonitoricon.png" alt="Volt Monitor ikona" class="app-icon"></div>
-                            <h3>Volt Monitor</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-voltmonitor-tag">Sledování stavu baterie v reálném čase - napětí, proud, teplota i historie nabíjení, žádné vymyšlené hodnoty.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="voltmonitor1.png" alt="Volt Monitor" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="voltmonitor2.png" alt="Volt Monitor" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.voltmonitor" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="privacy-policy-voltmonitor.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- CatchFi -->
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="catchficon.png" alt="CatchFi ikona" class="app-icon"></div>
-                            <h3>CatchFi</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-catchfi-tag">Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="catchfi1.png" alt="CatchFi" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="catchfi2.png" alt="CatchFi" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.catchfi" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="https://j7software.eu/catchfi_privacy_policy.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- Pippin's Quest: Lost Treasure (hra, screenshoty na šířku) -->
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="pippinicon.png" alt="Pippin’s Quest ikona" class="app-icon"></div>
-                            <h3>Pippin’s Quest: Lost Treasure</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-pippin-tag">Pohádková plošinovka pro děti - pomoz malému Pippinovi získat zpět ukradený poklad trpaslíků. První 2 levely zdarma, celou hru odemkne jednorázový nákup - bez reklam.</p>
-                    </div>
-                    <div class="screenshots-container landscape">
-                        <div class="screenshot-wrapper"><img src="pippin1.png" alt="Pippin’s Quest: Lost Treasure" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="pippin2.png" alt="Pippin’s Quest: Lost Treasure" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.j7software.pippin" target="_blank" class="btn-play-img">
-                            <img src="googleplay.png" alt="Stáhnout z Google Play">
-                        </a>
-                        <a href="privacy-policy-pippin.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- Inspektor Falk: Zastavený čas (detektivka, screenshoty na výšku vedle sebe) -->
-                <div class="app-card">
-                    <div class="app-details">
-                        <div class="app-header">
-                            <div class="app-icon-wrap"><img src="falkicon.png" alt="Inspektor Falk ikona" class="app-icon"></div>
-                            <h3 id="txt-falk-title">Inspektor Falk: Zastavený čas</h3>
-                        </div>
-                        <p class="app-tagline" id="txt-falk-tag">Detektivka z Prahy roku 1936 - vyslýchej podezřelé, skládej stopy a odhal vraha, který zastavil čas. Začátek případu zdarma, celý případ odemkne jednorázový nákup - bez reklam.</p>
-                    </div>
-                    <div class="screenshots-container">
-                        <div class="screenshot-wrapper"><img src="falk1.png" alt="Inspektor Falk: Zastavený čas" class="zoomable-img"></div>
-                        <div class="screenshot-wrapper"><img src="falk2.png" alt="Inspektor Falk: Zastavený čas" class="zoomable-img"></div>
-                    </div>
-                    <div class="actions">
-                        <!-- Až hra vyjde: nahradit tento štítek odkazem na https://play.google.com/store/apps/details?id=com.j7software.inspektorfalk1 (stejně jako u ostatních karet). -->
-                        <span class="status-badge" id="txt-status-soon">Brzy k dispozici</span>
-                        <a href="privacy-policy-inspektorfalk.html" target="_blank" class="privacy-link">Privacy Policy</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Full size screenshot">
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="contact-info"><span id="txt-contact-label">Kontakt:</span> <a href="#" onclick="openSecureEmail(event)" id="txt-contact-btn">Zobrazit e-mail</a></div>
-                <p class="copyright">&copy; 2026 J7Software. <span id="txt-rights">Všechna práva vyhrazena.</span></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const languages = {
-            cz: {
-                subtitle: "Přetváříme nápady ve výkonné Android aplikace. Moderní vývoj s nekompromisním důrazem na čistotu kódu a soukromí uživatelů.",
-                f1_title: "Transparentní přístup",
-                f1_desc: "Žádné skryté háčky. Jasně deklarujeme, jak aplikace fungují a jaká oprávnění k běhu skutečně potřebují.",
-                f2_title: "Moderní architektura",
-                f2_desc: "Stavíme na nejnovějších technologiích a nativním vývoji. Výsledkem je rychlost, stabilita a skvělá optimalizace.",
-                f3_title: "Vaše data pod kontrolou",
-                f3_desc: "Respektujeme digitální soukromí. Co je vaše, to zůstává v bezpečí vašeho zařízení nebo pod vaší přímou správou.",
-                section_projects: "Naše projekty",
-                focal_tag: "Chytrá lupa s přisvícením pro čtení drobného textu.",
-                tchiki_tag: "Rychlý, bezpečný a nezávislý e-mailový klient.",
-                raven_tag: "Přehledný a výkonný správce souborů pro váš Android.",
-                qradox_tag: "Rychlý a spolehlivý skener QR kódů a čárových kódů.",
-                audio_tag: "Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.",
-                sudoku_tag: "Relaxační a logická hra pro trénink vaší mysli.",
-                fuellytics_tag: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.",
-                subwatcher_tag: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.",
-                voltmonitor_tag: "Sledování stavu baterie v reálném čase - napětí, proud, teplota i historie nabíjení, žádné vymyšlené hodnoty.",
-                catchfi_tag: "Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.",
-                pippin_tag: "Pohádková plošinovka pro děti - pomoz malému Pippinovi získat zpět ukradený poklad trpaslíků. První 2 levely zdarma, celou hru odemkne jednorázový nákup - bez reklam.",
-                falk_title: "Inspektor Falk: Zastavený čas",
-                falk_tag: "Detektivka z Prahy roku 1936 - vyslýchej podezřelé, skládej stopy a odhal vraha, který zastavil čas. Začátek případu zdarma, celý případ odemkne jednorázový nákup - bez reklam.",
-                status_soon: "Brzy k dispozici",
-                status_prep: "Připravuje se",
-                contact_label: "Kontakt:",
-                contact_btn: "Zobrazit e-mail",
-                rights: "Všechna práva vyhrazena."
-            },
-            en: {
-                subtitle: "Transforming ideas into powerful Android applications. Modern development with an uncompromising emphasis on clean code and user privacy.",
-                f1_title: "Transparent Approach",
-                f1_desc: "No hidden catches. We clearly declare how our apps work and what permissions they actually need to run.",
-                f2_title: "Modern Architecture",
-                f2_desc: "Built on the latest technologies and native development. The result is speed, stability, and excellent optimization.",
-                f3_title: "Your Data Under Control",
-                f3_desc: "We respect digital privacy. What is yours stays safe on your device or under your direct management.",
-                section_projects: "Our Projects",
-                focal_tag: "Smart magnifier with flashlight for reading small text.",
-                tchiki_tag: "A fast, secure, and independent email client.",
-                raven_tag: "A clean and powerful file manager for your Android device.",
-                qradox_tag: "Fast and reliable QR code and barcode scanner.",
-                audio_tag: "A user-friendly audio recording application with easy sharing options.",
-                sudoku_tag: "A relaxing puzzle game to train your mind.",
-                fuellytics_tag: "Smart fuel, charging, and cost tracker for all your vehicles.",
-                subwatcher_tag: "Keeps an eye on your subscriptions and reminds you before the next payment.",
-                voltmonitor_tag: "Real-time battery monitoring - voltage, current, temperature, and charging history, with zero invented numbers.",
-                catchfi_tag: "Scans nearby Wi-Fi networks in the background and alerts you when it finds an unsecured network in range.",
-                pippin_tag: "A fairy-tale platformer for kids - help little Pippin win back the dwarves' stolen treasure. The first 2 levels are free, a one-time purchase unlocks the full game - no ads.",
-                falk_title: "Inspector Falk: Stopped Time",
-                falk_tag: "A murder mystery set in Prague, 1936 - interrogate suspects, piece the clues together and unmask the killer who stopped time. The beginning of the case is free, a one-time purchase unlocks the full case - no ads.",
-                status_soon: "Coming Soon",
-                status_prep: "In Development",
-                contact_label: "Contact:",
-                contact_btn: "Show email",
-                rights: "All rights reserved."
-            }
-        };
-
-        function switchLanguage(lang) {
-            localStorage.setItem('preferredLanguage', lang);
-            
-            document.getElementById('btn-cz').classList.toggle('active', lang === 'cz');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            
-            document.getElementById('txt-subtitle').textContent = languages[lang].subtitle;
-            document.getElementById('txt-f1-title').textContent = languages[lang].f1_title;
-            document.getElementById('txt-f1-desc').textContent = languages[lang].f1_desc;
-            document.getElementById('txt-f2-title').textContent = languages[lang].f2_title;
-            document.getElementById('txt-f2-desc').textContent = languages[lang].f2_desc;
-            document.getElementById('txt-f3-title').textContent = languages[lang].f3_title;
-            document.getElementById('txt-f3-desc').textContent = languages[lang].f3_desc;
-            document.getElementById('txt-section-projects').textContent = languages[lang].section_projects;
-            document.getElementById('txt-focal-tag').textContent = languages[lang].focal_tag;
-            document.getElementById('txt-tchiki-tag').textContent = languages[lang].tchiki_tag;
-            document.getElementById('txt-raven-tag').textContent = languages[lang].raven_tag;
-            document.getElementById('txt-qradox-tag').textContent = languages[lang].qradox_tag;
-            document.getElementById('txt-audio-tag').textContent = languages[lang].audio_tag;
-            document.getElementById('txt-sudoku-tag').textContent = languages[lang].sudoku_tag;
-            document.getElementById('txt-fuellytics-tag').textContent = languages[lang].fuellytics_tag;
-            document.getElementById('txt-subwatcher-tag').textContent = languages[lang].subwatcher_tag;
-            document.getElementById('txt-voltmonitor-tag').textContent = languages[lang].voltmonitor_tag;
-            document.getElementById('txt-catchfi-tag').textContent = languages[lang].catchfi_tag;
-            document.getElementById('txt-pippin-tag').textContent = languages[lang].pippin_tag;
-            document.getElementById('txt-falk-title').textContent = languages[lang].falk_title;
-            document.getElementById('txt-falk-tag').textContent = languages[lang].falk_tag;
-
-            const statusSoon = document.getElementById('txt-status-soon');
-            if(statusSoon) statusSoon.textContent = languages[lang].status_soon;
-            const statusPrep = document.getElementById('txt-status-prep');
-            if(statusPrep) statusPrep.textContent = languages[lang].status_prep;
-            
-            document.getElementById('txt-contact-label').textContent = languages[lang].contact_label;
-            
-            const emailBtn = document.getElementById('txt-contact-btn');
-            if (!emailBtn.textContent.includes('@')) {
-                emailBtn.textContent = languages[lang].contact_btn;
-            }
-            
-            document.getElementById('txt-rights').textContent = languages[lang].rights;
-            document.documentElement.lang = lang;
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            let savedLang = localStorage.getItem('preferredLanguage');
-            if (!savedLang) {
-                const browserLang = navigator.language || navigator.userLanguage;
-                savedLang = (browserLang.includes('cs') || browserLang.includes('sk')) ? 'cz' : 'en';
-            }
-            switchLanguage(savedLang);
-        });
-
-        function openSecureEmail(event) {
-            event.preventDefault(); 
-            const fullAddress = "j7software@post.cz";
-            window.location.href = "mailto:" + fullAddress;
-            event.target.textContent = fullAddress;
-            event.target.style.color = "var(--accent)";
-        }
-
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const zoomableImages = document.querySelectorAll('.zoomable-img');
-
-        zoomableImages.forEach(image => {
-            image.addEventListener('click', (e) => {
-                e.preventDefault();
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.alt;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(() => {
-                lightboxImg.src = '';
-            }, 300);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
-    </script>
+let lang = "cz";
+function card(x) {
+  const name = (lang === "en" && x.name_en) || x.name;
+  const shots = x.shots.map(s => `<div class="s"><img src="${s}" alt="${name}" class="zoom" loading="lazy"></div>`).join("");
+  const tags = (x.tags[lang] || []).map((t, i) => `<span class="tag${i === 0 ? " main" : ""}">${t}</span>`).join("");
+  const action = x.soon
+    ? `<span class="soon">${T[lang].soon}</span>`
+    : `<a class="play" href="${x.play}" target="_blank" rel="noopener"><img src="googleplay.png" alt="${T[lang].play_alt}"></a>`;
+  return `<article class="card">
+    <div class="card-head"><div class="icon"><img src="${x.icon}" alt=""></div><div><h3>${name}</h3><div class="tags">${tags}</div></div></div>
+    <p class="desc">${x[lang]}</p>
+    <div class="shots${x.wide ? " wide" : ""}">${shots}</div>
+    <div class="actions">${action}<a class="privacy" href="${x.privacy}" target="_blank" rel="noopener">Privacy Policy</a></div>
+  </article>`;
+}
+function render() {
+  document.getElementById("games-grid").innerHTML = GAMES.map(card).join("");
+  document.getElementById("apps-grid").innerHTML = APPS.map(card).join("");
+  document.getElementById("games-count").textContent = T[lang].count(GAMES.length);
+  document.getElementById("apps-count").textContent = T[lang].count(APPS.length);
+  document.querySelectorAll(".zoom").forEach(img => img.addEventListener("click", () => openLightbox(img)));
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 }) : null;
+  document.querySelectorAll(".card").forEach((c, i) => { c.style.transitionDelay = (i % 3) * 70 + "ms"; io ? io.observe(c) : c.classList.add("in"); });
+}
+function setLang(l) {
+  lang = l;
+  try { localStorage.setItem("preferredLanguage", l); } catch (e) {}
+  document.documentElement.lang = l === "cz" ? "cs" : "en";
+  document.getElementById("btn-cz").classList.toggle("active", l === "cz");
+  document.getElementById("btn-en").classList.toggle("active", l === "en");
+  document.querySelectorAll("[data-t]").forEach(el => {
+    const v = T[l][el.dataset.t];
+    if (typeof v === "string" && !(el.id === "mail" && el.textContent.includes("@"))) el.textContent = v;
+  });
+  render();
+}
+function showMail(e) { e.preventDefault(); const a = "j7software@post.cz"; location.href = "mailto:" + a; e.target.textContent = a; }
+const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lightbox-img");
+function openLightbox(img) { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add("active"); document.body.style.overflow = "hidden"; }
+function closeLightbox() { lb.classList.remove("active"); document.body.style.overflow = ""; }
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+document.addEventListener("DOMContentLoaded", () => {
+  let l = null; try { l = localStorage.getItem("preferredLanguage"); } catch (e) {}
+  if (!l) { const b = navigator.language || ""; l = (b.startsWith("cs") || b.startsWith("sk")) ? "cz" : "en"; }
+  setLang(l);
+});
+</script>
 </body>
 </html>
