@@ -118,13 +118,39 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 .lightbox .x{position:absolute;top:16px;right:26px;font-size:40px;color:#fff;cursor:pointer;line-height:1}
 
 @media (max-width:760px){
-  nav.top .links{display:none}
+  .wrap{padding:0 1rem}
+  nav.top .wrap{height:56px;gap:.5rem}
+  nav.top .brand{display:none}
+  nav.top .links{display:flex;margin-left:0}
+  nav.top .links a{padding:.4rem .6rem;font-size:.88rem}
+  nav.top .links a[href='#contact']{display:none}
   .lang{margin-left:auto}
-  header.hero{padding:3.5rem 0 2.5rem}
-  .choose{grid-template-columns:1fr}
-  .values{grid-template-columns:1fr}
-  .grid.games,.grid.apps{grid-template-columns:1fr}
-  .actions{flex-direction:column;align-items:flex-start}
+  header.hero{padding:2rem 0 1.8rem}
+  .hero .logo{max-width:260px;margin-bottom:1.2rem}
+  .hero p{font-size:.98rem;margin-bottom:1.5rem}
+  .choose{grid-template-columns:1fr 1fr;gap:.7rem}
+  .choose a{padding:1rem .9rem;border-radius:16px}
+  .choose .t{font-size:1.25rem}
+  .choose .d{font-size:.8rem;line-height:1.4}
+  .values{grid-template-columns:1fr;gap:.6rem;margin:.6rem 0 3rem}
+  .values div{padding:.9rem 1rem;border-radius:14px}
+  .values h3{font-size:.92rem}
+  .values p{font-size:.84rem}
+  section.block{margin-bottom:3.5rem}
+  .sec-head{margin-bottom:1.2rem}
+  .grid.games,.grid.apps{grid-template-columns:1fr;gap:1.1rem}
+  .card{padding:1.15rem;gap:.85rem;border-radius:18px}
+  .card h3{font-size:1.12rem}
+  .icon{width:48px;height:48px;border-radius:12px}
+  .card p.desc{font-size:.9rem}
+  .shots{padding:.6rem;gap:.6rem}
+  .shots .s{height:190px;max-width:110px}
+  .apps .shots .s{height:150px;max-width:85px}
+  .shots.wide .s{height:auto;max-width:100%}
+  .actions{flex-direction:row;align-items:center}
+  .play img{height:42px}
+  .soon{font-size:.72rem;padding:.45rem .7rem;white-space:nowrap}
+  .privacy{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
@@ -218,7 +244,7 @@ const T = {
     v1t:"Transparentní přístup", v1d:"Žádné skryté háčky. Jasně říkáme, jak aplikace fungují a jaká oprávnění potřebují.",
     v2t:"Moderní vývoj", v2d:"Nativní Android a nejnovější technologie. Rychlost, stabilita a skvělá optimalizace.",
     v3t:"Vaše data pod kontrolou", v3d:"Co je vaše, zůstává ve vašem zařízení nebo pod vaší přímou správou.",
-    soon:"Brzy na Google Play", play_alt:"Stáhnout z Google Play", contact:"Kontakt:", contact_btn:"Zobrazit e-mail", rights:"Všechna práva vyhrazena.",
+    soon:"Již brzy", play_alt:"Stáhnout z Google Play", contact:"Kontakt:", contact_btn:"Zobrazit e-mail", rights:"Všechna práva vyhrazena.",
     count: n => n + (n === 1 ? " položka" : n < 5 ? " položky" : " položek") },
   en: { nav_games:"Games", nav_apps:"Apps", nav_contact:"Contact", k_games:"Play", k_apps:"Use",
     subtitle:"We build Android games and apps with a focus on clean code, privacy and a fair approach.",
@@ -226,7 +252,7 @@ const T = {
     v1t:"Transparent Approach", v1d:"No hidden catches. We clearly say how our apps work and what permissions they need.",
     v2t:"Modern Development", v2d:"Native Android and the latest technologies. Speed, stability and excellent optimization.",
     v3t:"Your Data Under Control", v3d:"What is yours stays on your device or under your direct management.",
-    soon:"Coming soon to Google Play", play_alt:"Get it on Google Play", contact:"Contact:", contact_btn:"Show email", rights:"All rights reserved.",
+    soon:"Coming soon", play_alt:"Get it on Google Play", contact:"Contact:", contact_btn:"Show email", rights:"All rights reserved.",
     count: n => n + (n === 1 ? " item" : " items") },
 };
 
