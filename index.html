@@ -67,7 +67,22 @@ footer .social a:hover{border-color:#ff3b3b;background:rgba(255,30,30,.22);box-s
 
 /* úvod */
 header.hero{text-align:center;padding:5.5rem 0 3.5rem}
-.hero .logo{max-width:520px;width:100%;height:auto;margin-bottom:2rem;filter:drop-shadow(0 0 40px rgba(255,255,255,.08));animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards,float 7s ease-in-out 1s infinite}
+/* velké logo: odlesk, dýchající záře, třpytivá hvězdička, náklon za myší */
+.logo-wrap{position:relative;display:inline-block;width:100%;max-width:520px;margin-bottom:2rem;animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards,float 7s ease-in-out 1s infinite}
+.logo-tilt{position:relative;transform:perspective(900px) rotateX(var(--lx,0deg)) rotateY(var(--ly,0deg));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.hero .logo{display:block;width:100%;height:auto;filter:drop-shadow(0 0 14px rgba(140,255,60,.22));animation:glow 4.5s ease-in-out infinite}
+@keyframes glow{50%{filter:drop-shadow(0 0 30px rgba(140,255,60,.48))}}
+.logo-shine{position:absolute;inset:0;pointer-events:none;
+  -webkit-mask:url(logo.png) center/100% 100% no-repeat;mask:url(logo.png) center/100% 100% no-repeat;
+  background:linear-gradient(105deg,transparent 45%,rgba(230,255,200,.75) 50%,transparent 55%) 0 0/300% 100% no-repeat;mix-blend-mode:screen;
+  background-position:120% 0;animation:logoShine 6s ease-in-out 1.2s infinite}
+@keyframes logoShine{0%{background-position:120% 0}30%,100%{background-position:-20% 0}}
+.logo-star{position:absolute;left:88.1%;top:40%;width:13%;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;animation:twinkle 3s ease-in-out infinite}
+.logo-star::before,.logo-star::after{content:'';position:absolute;inset:0;border-radius:50%}
+.logo-star::before{background:radial-gradient(circle,#fff 0 4%,rgba(210,255,140,.75) 10%,rgba(140,255,60,.25) 24%,transparent 50%)}
+.logo-star::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 50%,transparent) center/100% 2px no-repeat,linear-gradient(0deg,transparent,rgba(255,255,255,.9) 50%,transparent) center/2px 100% no-repeat;animation:spin 6s linear infinite}
+@keyframes twinkle{0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.55)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}60%{opacity:.8;transform:translate(-50%,-50%) scale(.9)}}
+@keyframes spin{to{transform:rotate(90deg)}}
 .hero p{animation:rise .9s cubic-bezier(.2,.7,.2,1) .15s backwards}
 .choose a{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
 .choose a:nth-child(1){animation-delay:.3s} .choose a:nth-child(2){animation-delay:.42s}
@@ -180,7 +195,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
   .yt span{display:none}
   .lang{margin-left:.3rem}
   header.hero{padding:2rem 0 1.8rem}
-  .hero .logo{max-width:260px;margin-bottom:1.2rem}
+  .logo-wrap{max-width:260px;margin-bottom:1.2rem}
   .hero p{font-size:.98rem;margin-bottom:1.5rem}
   .choose{grid-template-columns:1fr 1fr;gap:.7rem}
   .choose a{padding:1rem .9rem;border-radius:16px}
@@ -205,7 +220,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
   .privacy{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}
-  body::before,.hero .logo,.hero p,.choose a,.values div,.soon,.clock .time .colon{animation:none}#fx{display:none}}
+  body::before,.logo-wrap,.hero .logo,.logo-shine,.logo-star,.logo-star::after,.hero p,.choose a,.values div,.soon,.clock .time .colon{animation:none}#fx{display:none}}
 </style>
 </head>
 <body>
@@ -221,7 +236,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 
 <div class="wrap">
   <header class="hero">
-    <img src="logo.png" alt="J7Software" class="logo">
+    <div class="logo-wrap"><div class="logo-tilt" id="logo-tilt"><img src="logo.png" alt="J7Software" class="logo"><span class="logo-shine" aria-hidden="true"></span><span class="logo-star" aria-hidden="true"></span></div></div>
     <p data-t="subtitle">Tvoříme Android hry a aplikace s důrazem na čistý kód, soukromí a férový přístup.</p>
     <div class="choose">
       <a class="games" href="#games"><div class="k" data-t="k_games">Hrajte</div><div class="t" data-t="nav_games">Hry</div><div class="d" data-t="d_games">Detektivky, plošinovky a logické hry bez reklam.</div></a>
@@ -401,6 +416,16 @@ function tick() {
   document.getElementById("clock-date").textContent = d.toLocaleDateString(loc, { weekday: "short", day: "numeric", month: lang === "cz" ? "numeric" : "short" });
 }
 setInterval(tick, 1000);
+
+// logo se natáčí za myší
+if (FINE && !CALM) {
+  const hero = document.querySelector("header.hero"), lt = document.getElementById("logo-tilt");
+  hero.addEventListener("pointermove", e => {
+    const r = lt.getBoundingClientRect(), x = (e.clientX - r.left - r.width / 2) / innerWidth, y = (e.clientY - r.top - r.height / 2) / innerHeight;
+    lt.style.setProperty("--ly", x * 16 + "deg"); lt.style.setProperty("--lx", -y * 12 + "deg");
+  });
+  hero.addEventListener("pointerleave", () => { lt.style.setProperty("--ly", "0deg"); lt.style.setProperty("--lx", "0deg"); });
+}
 
 // lišta průběhu a stín horní lišty
 const bar = document.getElementById("progress"), nav = document.querySelector("nav.top");
