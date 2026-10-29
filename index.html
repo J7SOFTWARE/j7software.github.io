@@ -41,10 +41,26 @@ nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:r
 nav.top.scrolled{background:rgba(5,7,10,.88);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 nav.top .wrap{display:flex;align-items:center;gap:1rem;height:64px}
 nav.top .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;letter-spacing:.02em}
-nav.top .brand img{height:30px;width:auto}
+nav.top .clock{gap:.7rem;align-items:baseline}
+.clock .time{font-size:1.15rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  background:linear-gradient(90deg,var(--game),var(--app));-webkit-background-clip:text;background-clip:text;color:transparent}
+.clock .time .colon{animation:blink 2s steps(1) infinite}
+@keyframes blink{50%{opacity:.25}}
+.clock .date{color:var(--muted);font-size:.85rem;font-weight:600;text-transform:capitalize}
 nav.top .links{display:flex;gap:.3rem;margin-left:auto}
 nav.top .links a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem;padding:.45rem .8rem;border-radius:10px;transition:.2s}
 nav.top .links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.yt{display:flex;align-items:center;gap:.45rem;height:34px;padding:0 .8rem 0 .6rem;margin-left:.4rem;border-radius:10px;text-decoration:none;
+  color:#fff;font-weight:700;font-size:.88rem;border:1px solid rgba(255,60,60,.45);background:rgba(255,30,30,.12);transition:.2s}
+.yt-logo{height:18px;width:auto;display:block}
+.yt-logo+svg{display:none}
+.yt svg{width:13px;height:13px;color:#ff4040}
+.yt:hover{border-color:#ff3b3b;background:rgba(255,30,30,.22);box-shadow:0 0 22px rgba(255,40,40,.35);transform:translateY(-1px)}
+footer .social{margin-bottom:1rem}
+footer .social a{display:inline-flex;align-items:center;gap:.6rem;color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:.6rem 1.2rem;border:1px solid rgba(255,60,60,.45);border-radius:999px;background:rgba(255,30,30,.12);transition:.2s}
+footer .social a .yt-logo{height:22px}
+footer .social a svg{width:14px;height:14px;color:#ff4040}
+footer .social a:hover{border-color:#ff3b3b;background:rgba(255,30,30,.22);box-shadow:0 0 26px rgba(255,40,40,.35);transform:translateY(-2px)}
 .lang{display:flex;gap:4px;margin-left:.5rem}
 .lang button{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);padding:5px 10px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:inherit}
 .lang button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
@@ -160,7 +176,9 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
   nav.top .links{display:flex;margin-left:0}
   nav.top .links a{padding:.4rem .6rem;font-size:.88rem}
   nav.top .links a[href='#contact']{display:none}
-  .lang{margin-left:auto}
+  .yt{margin-left:auto;height:32px;padding:0 .55rem}
+  .yt span{display:none}
+  .lang{margin-left:.3rem}
   header.hero{padding:2rem 0 1.8rem}
   .hero .logo{max-width:260px;margin-bottom:1.2rem}
   .hero p{font-size:.98rem;margin-bottom:1.5rem}
@@ -187,7 +205,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
   .privacy{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}
-  body::before,.hero .logo,.hero p,.choose a,.values div,.soon{animation:none}#fx{display:none}}
+  body::before,.hero .logo,.hero p,.choose a,.values div,.soon,.clock .time .colon{animation:none}#fx{display:none}}
 </style>
 </head>
 <body>
@@ -195,8 +213,9 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 <div id="progress" aria-hidden="true"></div>
 
 <nav class="top"><div class="wrap">
-  <a class="brand" href="#"><img src="logo.png" alt="J7Software"></a>
+  <a class="brand clock" href="#" aria-label="J7Software"><span class="time" id="clock-time"></span><span class="date" id="clock-date"></span></a>
   <div class="links"><a href="#games" data-t="nav_games">Hry</a><a href="#apps" data-t="nav_apps">Aplikace</a><a href="#contact" data-t="nav_contact">Kontakt</a></div>
+  <a class="yt" href="https://www.youtube.com/@j7software" target="_blank" rel="noopener" aria-label="YouTube J7Software" title="YouTube"><img class="yt-logo" src="youtube.png" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span>YouTube</span></a>
   <div class="lang"><button id="btn-cz" onclick="setLang('cz')">CZ</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
 </div></nav>
 
@@ -229,6 +248,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 </div>
 
 <footer id="contact"><div class="wrap">
+  <div class="social"><a href="https://www.youtube.com/@j7software" target="_blank" rel="noopener"><img class="yt-logo" src="youtube.png" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span data-t="yt">Sledujte nás na YouTube</span></a></div>
   <div class="contact"><span data-t="contact">Kontakt:</span> <a href="#" id="mail" onclick="showMail(event)" data-t="contact_btn">Zobrazit e-mail</a></div>
   <div class="copy">&copy; 2026 J7Software. <span data-t="rights">Všechna práva vyhrazena.</span></div>
 </div></footer>
@@ -297,7 +317,7 @@ const T = {
     v1t:"Transparentní přístup", v1d:"Žádné skryté háčky. Jasně říkáme, jak aplikace fungují a jaká oprávnění potřebují.",
     v2t:"Moderní vývoj", v2d:"Nativní Android a nejnovější technologie. Rychlost, stabilita a skvělá optimalizace.",
     v3t:"Vaše data pod kontrolou", v3d:"Co je vaše, zůstává ve vašem zařízení nebo pod vaší přímou správou.",
-    soon:"Již brzy", play_alt:"Stáhnout z Google Play", contact:"Kontakt:", contact_btn:"Zobrazit e-mail", rights:"Všechna práva vyhrazena.",
+    soon:"Již brzy", play_alt:"Stáhnout z Google Play", contact:"Kontakt:", contact_btn:"Zobrazit e-mail", yt:"Sledujte nás na YouTube", rights:"Všechna práva vyhrazena.",
     count: n => n + (n === 1 ? " položka" : n < 5 ? " položky" : " položek") },
   en: { nav_games:"Games", nav_apps:"Apps", nav_contact:"Contact", k_games:"Play", k_apps:"Use",
     subtitle:"We build Android games and apps with a focus on clean code, privacy and a fair approach.",
@@ -305,7 +325,7 @@ const T = {
     v1t:"Transparent Approach", v1d:"No hidden catches. We clearly say how our apps work and what permissions they need.",
     v2t:"Modern Development", v2d:"Native Android and the latest technologies. Speed, stability and excellent optimization.",
     v3t:"Your Data Under Control", v3d:"What is yours stays on your device or under your direct management.",
-    soon:"Coming soon", play_alt:"Get it on Google Play", contact:"Contact:", contact_btn:"Show email", rights:"All rights reserved.",
+    soon:"Coming soon", play_alt:"Get it on Google Play", contact:"Contact:", contact_btn:"Show email", yt:"Follow us on YouTube", rights:"All rights reserved.",
     count: n => n + (n === 1 ? " item" : " items") },
 };
 
@@ -361,12 +381,26 @@ function setLang(l) {
     if (typeof v === "string" && !(el.id === "mail" && el.textContent.includes("@"))) el.textContent = v;
   });
   render();
+  tick();
 }
 function showMail(e) { e.preventDefault(); const a = "j7software@post.cz"; location.href = "mailto:" + a; e.target.textContent = a; }
 const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lightbox-img");
 function openLightbox(img) { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add("active"); document.body.style.overflow = "hidden"; }
 function closeLightbox() { lb.classList.remove("active"); document.body.style.overflow = ""; }
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+// hodiny v horní liště (místní čas návštěvníka)
+let lastTick = "";
+function tick() {
+  const d = new Date(), loc = lang === "cz" ? "cs-CZ" : "en-GB";
+  const key = lang + d.getHours() + ":" + d.getMinutes();
+  if (key === lastTick) return;
+  lastTick = key;
+  const hh = String(d.getHours()).padStart(2, "0"), mm = String(d.getMinutes()).padStart(2, "0");
+  document.getElementById("clock-time").innerHTML = `${hh}<span class="colon">:</span>${mm}`;
+  document.getElementById("clock-date").textContent = d.toLocaleDateString(loc, { weekday: "short", day: "numeric", month: lang === "cz" ? "numeric" : "short" });
+}
+setInterval(tick, 1000);
 
 // lišta průběhu a stín horní lišty
 const bar = document.getElementById("progress"), nav = document.querySelector("nav.top");
