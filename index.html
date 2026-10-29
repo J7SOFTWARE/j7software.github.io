@@ -72,6 +72,10 @@ section.block{margin-bottom:5.5rem}
 .grid{display:grid;gap:1.6rem}
 .grid.games{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
 .grid.apps{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+/* série Inspektor Falk: tři díly vedle sebe */
+.grid.series{grid-template-columns:repeat(3,1fr);margin-bottom:1.6rem}
+.grid.series .shots .s{height:210px}
+@media (max-width:1060px){.grid.series{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}
 
 .card{background:var(--surface);border:1px solid var(--line);backdrop-filter:blur(12px);border-radius:24px;padding:1.6rem;display:flex;flex-direction:column;gap:1.1rem;transition:.3s;opacity:0;transform:translateY(16px)}
 .card.in{opacity:1;transform:none}
@@ -138,7 +142,8 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
   .values p{font-size:.84rem}
   section.block{margin-bottom:3.5rem}
   .sec-head{margin-bottom:1.2rem}
-  .grid.games,.grid.apps{grid-template-columns:1fr;gap:1.1rem}
+  .grid.games,.grid.apps,.grid.series{grid-template-columns:1fr;gap:1.1rem}
+  .grid.series{margin-bottom:1.1rem}
   .card{padding:1.15rem;gap:.85rem;border-radius:18px}
   .card h3{font-size:1.12rem}
   .icon{width:48px;height:48px;border-radius:12px}
@@ -181,6 +186,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 
   <section class="block" id="games">
     <div class="sec-head"><h2 data-t="nav_games">Hry</h2><span class="count" id="games-count"></span></div>
+    <div class="grid games series" id="series-grid"></div>
     <div class="grid games" id="games-grid"></div>
   </section>
 
@@ -199,18 +205,33 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 
 <script>
 const PLAY = id => `https://play.google.com/store/apps/details?id=${id}`;
-// hry: wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
+// hry: series = díl série Inspektor Falk (řada vedle sebe, seřazená podle čísla); wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
 const GAMES = [
-  { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "falkicon.png", shots: ["falk1.png","falk2.png"], soon: true,
+  { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "falkicon.png", shots: ["falk1.png","falk2.png"], soon: true, series: 1,
     play: PLAY("com.j7software.inspektorfalk1"), privacy: "privacy-policy-inspektorfalk.html",
-    tags: { cz: ["Detektivka", "Zdarma na zkoušku"], en: ["Mystery", "Free to try"] },
+    tags: { cz: ["Detektivka", "1. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 1", "Free to try"] },
     cz: "Praha 1936. Vyslýchej podezřelé, skládej stopy a odhal vraha, který zastavil čas. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
     en: "Prague, 1936. Interrogate suspects, piece the clues together and unmask the killer who stopped time. The beginning is free, a one-time purchase unlocks the full case – no ads." },
+  { name: "Inspektor Falk: Vídeňská noc", name_en: "Inspector Falk: Vienna Night", icon: "falk2icon.png", shots: ["viden1.png","viden2.png"], soon: true, series: 2,
+    play: PLAY("com.j7software.inspektorfalk2"), privacy: "privacy-policy-inspektorfalk.html",
+    tags: { cz: ["Detektivka", "2. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 2", "Free to try"] },
+    cz: "Inspektor Falk míří do Vídně. Noční město, vyslýchání podezřelých a případ, ve kterém nic není tím, čím se zdá. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
+    en: "Inspector Falk heads to Vienna. A city at night, suspects to question and a case where nothing is what it seems. The beginning is free, a one-time purchase unlocks the full case – no ads." },
+  { name: "Inspektor Falk: Mlha nad Dunajem", name_en: "Inspector Falk: Mist over the Danube", icon: "falk3icon.png", shots: ["mlha1.png","mlha2.png"], soon: true, series: 3,
+    play: PLAY("com.j7software.inspektorfalk3"), privacy: "privacy-policy-inspektorfalk.html",
+    tags: { cz: ["Detektivka", "3. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 3", "Free to try"] },
+    cz: "Podzim 1938. Parník Kassandra pluje v mlze po Dunaji a jeden z cestujících ráno chybí. Vyslýchej posádku i pasažéry a odhal, kdo je na palubě navíc. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
+    en: "Autumn 1938. The steamer Kassandra sails down the fog-bound Danube, and by morning one passenger is gone. Question the crew and passengers and find out who else is on board. The beginning is free, a one-time purchase unlocks the full case – no ads." },
   { name: "Pippin’s Quest: Lost Treasure", icon: "pippinicon.png", shots: ["pippin1.png","pippin2.png"], wide: true,
     play: PLAY("com.j7software.pippin"), privacy: "privacy-policy-pippin.html",
     tags: { cz: ["Plošinovka", "Pro děti"], en: ["Platformer", "For kids"] },
     cz: "Pohádková plošinovka pro děti – pomoz malému Pippinovi získat zpět ukradený poklad trpaslíků. První 2 levely zdarma, celou hru odemkne jednorázový nákup – bez reklam.",
     en: "A fairy-tale platformer for kids – help little Pippin win back the dwarves' stolen treasure. The first 2 levels are free, a one-time purchase unlocks the full game – no ads." },
+  { name: "Biathlon Rush: Mass Start", icon: "biathlonicon.png", shots: ["biathlon1.png","biathlon2.png"], wide: true, soon: true,
+    play: PLAY("com.j7software.biathlon"), privacy: "privacy-policy-biathlon.html",
+    tags: { cz: ["Sport", "Biatlon"], en: ["Sports", "Biathlon"] },
+    cz: "Ťukáním běž, zadrž dech a střílej čistě. Hromadný start biatlonu s 12 závodníky!",
+    en: "Tap to ski, hold your breath, shoot clean. 12-racer biathlon mass start!" },
   { name: "Sudoku Garden", icon: "sudokuicon.png", shots: ["sudoku1.png","sudoku2.png"],
     play: PLAY("com.j7software.sudoku"), privacy: "https://j7software.github.io/Sudoku_privacy_policy.html",
     tags: { cz: ["Logická hra"], en: ["Puzzle"] },
@@ -272,7 +293,9 @@ function card(x) {
   </article>`;
 }
 function render() {
-  document.getElementById("games-grid").innerHTML = GAMES.map(card).join("");
+  const series = GAMES.filter(g => g.series).sort((a, b) => a.series - b.series);
+  document.getElementById("series-grid").innerHTML = series.map(card).join("");
+  document.getElementById("games-grid").innerHTML = GAMES.filter(g => !g.series).map(card).join("");
   document.getElementById("apps-grid").innerHTML = APPS.map(card).join("");
   document.getElementById("games-count").textContent = T[lang].count(GAMES.length);
   document.getElementById("apps-count").textContent = T[lang].count(APPS.length);
