@@ -6,9 +6,8 @@
 <title>J7Software | Android aplikace a hry</title>
 <meta name="description" content="J7Software – moderní Android aplikace a hry. Čistý kód, transparentní přístup a důraz na soukromí.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#05070a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +72,7 @@ header.hero{text-align:center;padding:5.5rem 0 3.5rem}
 .hero .logo{display:block;width:100%;height:auto;filter:drop-shadow(0 0 14px rgba(140,255,60,.22));animation:glow 4.5s ease-in-out infinite}
 @keyframes glow{50%{filter:drop-shadow(0 0 30px rgba(140,255,60,.48))}}
 .logo-shine{position:absolute;inset:0;pointer-events:none;
-  -webkit-mask:url(logo.png) center/100% 100% no-repeat;mask:url(logo.png) center/100% 100% no-repeat;
+  -webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;
   background:linear-gradient(105deg,transparent 45%,rgba(230,255,200,.75) 50%,transparent 55%) 0 0/300% 100% no-repeat;mix-blend-mode:screen;
   background-position:120% 0;animation:logoShine 6s ease-in-out 1.2s infinite}
 @keyframes logoShine{0%{background-position:120% 0}30%,100%{background-position:-20% 0}}
@@ -230,13 +229,13 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 <nav class="top"><div class="wrap">
   <a class="brand clock" href="#" aria-label="J7Software"><span class="time" id="clock-time"></span><span class="date" id="clock-date"></span></a>
   <div class="links"><a href="#games" data-t="nav_games">Hry</a><a href="#apps" data-t="nav_apps">Aplikace</a><a href="#contact" data-t="nav_contact">Kontakt</a></div>
-  <a class="yt" href="https://www.youtube.com/@j7software" target="_blank" rel="noopener" aria-label="YouTube J7Software" title="YouTube"><img class="yt-logo" src="youtube.png" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span>YouTube</span></a>
+  <a class="yt" href="https://www.youtube.com/@j7software" target="_blank" rel="noopener" aria-label="YouTube J7Software" title="YouTube"><img class="yt-logo" src="img/youtube.webp" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span>YouTube</span></a>
   <div class="lang"><button id="btn-cz" onclick="setLang('cz')">CZ</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
 </div></nav>
 
 <div class="wrap">
   <header class="hero">
-    <div class="logo-wrap"><div class="logo-tilt" id="logo-tilt"><img src="logo.png" alt="J7Software" class="logo"><span class="logo-shine" aria-hidden="true"></span><span class="logo-star" aria-hidden="true"></span></div></div>
+    <div class="logo-wrap"><div class="logo-tilt" id="logo-tilt"><img src="img/logo.webp" alt="J7Software" class="logo"><span class="logo-shine" aria-hidden="true"></span><span class="logo-star" aria-hidden="true"></span></div></div>
     <p data-t="subtitle">Tvoříme Android hry a aplikace s důrazem na čistý kód, soukromí a férový přístup.</p>
     <div class="choose">
       <a class="games" href="#games"><div class="k" data-t="k_games">Hrajte</div><div class="t" data-t="nav_games">Hry</div><div class="d" data-t="d_games">Detektivky, plošinovky a logické hry bez reklam.</div></a>
@@ -263,7 +262,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 </div>
 
 <footer id="contact"><div class="wrap">
-  <div class="social"><a href="https://www.youtube.com/@j7software" target="_blank" rel="noopener"><img class="yt-logo" src="youtube.png" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span data-t="yt">Sledujte nás na YouTube</span></a></div>
+  <div class="social"><a href="https://www.youtube.com/@j7software" target="_blank" rel="noopener"><img class="yt-logo" src="img/youtube.webp" alt="" onerror="this.remove()"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg><span data-t="yt">Sledujte nás na YouTube</span></a></div>
   <div class="contact"><span data-t="contact">Kontakt:</span> <a href="#" id="mail" onclick="showMail(event)" data-t="contact_btn">Zobrazit e-mail</a></div>
   <div class="copy">&copy; 2026 J7Software. <span data-t="rights">Všechna práva vyhrazena.</span></div>
 </div></footer>
@@ -274,54 +273,54 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 const PLAY = id => `https://play.google.com/store/apps/details?id=${id}`;
 // hry (14. 11. 2026: 1.–3. díl Inspektora Falka vydány v Google Play): series = díl série Inspektor Falk (řada vedle sebe, seřazená podle čísla); wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
 const GAMES = [
-  { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "falkicon.png", shots: ["falk1.png","falk2.png"], series: 1,
-    play: PLAY("com.j7software.inspektorfalk1"), privacy: "privacy-policy-inspektorfalk.html",
+  { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "apps/inspektorfalk/falkicon.webp", shots: ["apps/inspektorfalk/falk1.webp","apps/inspektorfalk/falk2.webp"], series: 1,
+    play: PLAY("com.j7software.inspektorfalk1"), privacy: "apps/inspektorfalk/privacy-policy.html",
     tags: { cz: ["Detektivka", "1. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 1", "Free to try"] },
     cz: "Praha 1936. Vyslýchej podezřelé, skládej stopy a odhal vraha, který zastavil čas. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
     en: "Prague, 1936. Interrogate suspects, piece the clues together and unmask the killer who stopped time. The beginning is free, a one-time purchase unlocks the full case – no ads." },
-  { name: "Inspektor Falk: Vídeňská noc", name_en: "Inspector Falk: Vienna Night", icon: "falk2icon.png", shots: ["viden1.png","viden2.png"], series: 2,
-    play: PLAY("com.j7software.inspektorfalk2"), privacy: "privacy-policy-inspektorfalk.html",
+  { name: "Inspektor Falk: Vídeňská noc", name_en: "Inspector Falk: Vienna Night", icon: "apps/inspektorfalk/falk2icon.webp", shots: ["apps/inspektorfalk/viden1.webp","apps/inspektorfalk/viden2.webp"], series: 2,
+    play: PLAY("com.j7software.inspektorfalk2"), privacy: "apps/inspektorfalk/privacy-policy.html",
     tags: { cz: ["Detektivka", "2. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 2", "Free to try"] },
     cz: "Inspektor Falk míří do Vídně. Noční město, vyslýchání podezřelých a případ, ve kterém nic není tím, čím se zdá. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
     en: "Inspector Falk heads to Vienna. A city at night, suspects to question and a case where nothing is what it seems. The beginning is free, a one-time purchase unlocks the full case – no ads." },
-  { name: "Inspektor Falk: Mlha nad Dunajem", name_en: "Inspector Falk: Mist over the Danube", icon: "falk3icon.png", shots: ["mlha1.png","mlha2.png"], series: 3,
-    play: PLAY("com.j7software.inspektorfalk3"), privacy: "privacy-policy-inspektorfalk.html",
+  { name: "Inspektor Falk: Mlha nad Dunajem", name_en: "Inspector Falk: Mist over the Danube", icon: "apps/inspektorfalk/falk3icon.webp", shots: ["apps/inspektorfalk/mlha1.webp","apps/inspektorfalk/mlha2.webp"], series: 3,
+    play: PLAY("com.j7software.inspektorfalk3"), privacy: "apps/inspektorfalk/privacy-policy.html",
     tags: { cz: ["Detektivka", "3. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 3", "Free to try"] },
     cz: "Podzim 1938. Parník Kassandra pluje v mlze po Dunaji a jeden z cestujících ráno chybí. Vyslýchej posádku i pasažéry a odhal, kdo je na palubě navíc. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
     en: "Autumn 1938. The steamer Kassandra sails down the fog-bound Danube, and by morning one passenger is gone. Question the crew and passengers and find out who else is on board. The beginning is free, a one-time purchase unlocks the full case – no ads." },
-  { name: "Pippin’s Quest: Lost Treasure", icon: "pippinicon.png", shots: ["pippin1.png","pippin2.png"], wide: true,
-    play: PLAY("com.j7software.pippin"), privacy: "privacy-policy-pippin.html",
+  { name: "Pippin’s Quest: Lost Treasure", icon: "apps/pippin/pippinicon.webp", shots: ["apps/pippin/pippin1.webp","apps/pippin/pippin2.webp"], wide: true,
+    play: PLAY("com.j7software.pippin"), privacy: "apps/pippin/privacy-policy.html",
     tags: { cz: ["Plošinovka", "Pro děti"], en: ["Platformer", "For kids"] },
     cz: "Pohádková plošinovka pro děti – pomoz malému Pippinovi získat zpět ukradený poklad trpaslíků. První 2 levely zdarma, celou hru odemkne jednorázový nákup – bez reklam.",
     en: "A fairy-tale platformer for kids – help little Pippin win back the dwarves' stolen treasure. The first 2 levels are free, a one-time purchase unlocks the full game – no ads." },
-  { name: "Biathlon Rush: Mass Start", icon: "biathlonicon.png", shots: ["biathlon1.png","biathlon2.png"], wide: true, soon: true,
-    play: PLAY("com.j7software.biathlon"), privacy: "biathlon_privacy_policy.html",
+  { name: "Biathlon Rush: Mass Start", icon: "apps/biathlon/biathlonicon.webp", shots: ["apps/biathlon/biathlon1.webp","apps/biathlon/biathlon2.webp"], wide: true, soon: true,
+    play: PLAY("com.j7software.biathlon"), privacy: "apps/biathlon/privacy-policy.html",
     tags: { cz: ["Sport", "Biatlon"], en: ["Sports", "Biathlon"] },
     cz: "Ťukáním běž, zadrž dech a střílej čistě. Hromadný start biatlonu s 12 závodníky!",
     en: "Tap to ski, hold your breath, shoot clean. 12-racer biathlon mass start!" },
-  { name: "Sudoku Garden", icon: "sudokuicon.png", shots: ["sudoku1.png","sudoku2.png"],
-    play: PLAY("com.j7software.sudoku"), privacy: "https://j7software.github.io/Sudoku_privacy_policy.html",
+  { name: "Sudoku Garden", icon: "apps/sudoku/sudokuicon.webp", shots: ["apps/sudoku/sudoku1.webp","apps/sudoku/sudoku2.webp"],
+    play: PLAY("com.j7software.sudoku"), privacy: "apps/sudoku/privacy-policy.html",
     tags: { cz: ["Logická hra"], en: ["Puzzle"] },
     cz: "Relaxační a logická hra pro trénink vaší mysli.", en: "A relaxing puzzle game to train your mind." },
 ];
 const APPS = [
-  { name: "FocalFreeze", icon: "focalicon.png", shots: ["focalfreeze1.png","focalfreeze2.png"], play: PLAY("com.j7software.focalfreeze"), privacy: "privacy_policy_focalfreeze.html",
+  { name: "FocalFreeze", icon: "apps/focalfreeze/focalicon.webp", shots: ["apps/focalfreeze/focalfreeze1.webp","apps/focalfreeze/focalfreeze2.webp"], play: PLAY("com.j7software.focalfreeze"), privacy: "apps/focalfreeze/privacy-policy.html",
     tags: { cz: ["Nástroj"], en: ["Tool"] }, cz: "Chytrá lupa s přisvícením pro čtení drobného textu.", en: "Smart magnifier with flashlight for reading small text." },
-  { name: "TchikiMail", icon: "tchikiicon.png", shots: ["tchiki1.png","tchiki2.png"], play: PLAY("com.j7software.emailapp"), privacy: "https://j7software.github.io/privacy.html",
+  { name: "TchikiMail", icon: "apps/tchikimail/tchikiicon.webp", shots: ["apps/tchikimail/tchiki1.webp","apps/tchikimail/tchiki2.webp"], play: PLAY("com.j7software.emailapp"), privacy: "apps/tchikimail/privacy-policy.html",
     tags: { cz: ["Komunikace"], en: ["Communication"] }, cz: "Rychlý, bezpečný a nezávislý e-mailový klient.", en: "A fast, secure, and independent email client." },
-  { name: "Raven File Manager", icon: "rave.png", shots: ["raven1.png","raven2.png"], play: PLAY("com.j7software.ravenfilemanager"), privacy: "https://j7software.github.io/raven-privacy.html",
+  { name: "Raven File Manager", icon: "apps/raven/rave.webp", shots: ["apps/raven/raven1.webp","apps/raven/raven2.webp"], play: PLAY("com.j7software.ravenfilemanager"), privacy: "apps/raven/privacy-policy.html",
     tags: { cz: ["Soubory"], en: ["Files"] }, cz: "Přehledný a výkonný správce souborů pro váš Android.", en: "A clean and powerful file manager for your Android device." },
-  { name: "QRadox", icon: "qradoxicon.png", shots: ["qradox1.png","qradox2.png"], play: PLAY("com.j7software.qradox"), privacy: "https://j7software.github.io/QRadox_privacy_policy.html",
+  { name: "QRadox", icon: "apps/qradox/qradoxicon.webp", shots: ["apps/qradox/qradox1.webp","apps/qradox/qradox2.webp"], play: PLAY("com.j7software.qradox"), privacy: "apps/qradox/privacy-policy.html",
     tags: { cz: ["Skener"], en: ["Scanner"] }, cz: "Rychlý a spolehlivý skener QR kódů a čárových kódů.", en: "Fast and reliable QR code and barcode scanner." },
-  { name: "Audio Recorder", icon: "audiorecorderikona.png", shots: ["audio1.png","audio2.png"], play: PLAY("com.j7software.audiorecorder"), privacy: "https://j7software.github.io/privacy_policy_audio.txt",
+  { name: "Audio Recorder", icon: "apps/audiorecorder/audiorecorderikona.webp", shots: ["apps/audiorecorder/audio1.webp","apps/audiorecorder/audio2.webp"], play: PLAY("com.j7software.audiorecorder"), privacy: "apps/audiorecorder/privacy-policy.txt",
     tags: { cz: ["Zvuk"], en: ["Audio"] }, cz: "Uživatelsky přívětivá aplikace pro záznam zvuku s možností sdílení.", en: "A user-friendly audio recording application with easy sharing options." },
-  { name: "Fuellytics", icon: "fuellyticsicon.png", shots: ["fuellytics1.png","fuellytics2.png"], play: PLAY("com.j7software.fuellytics"), privacy: "fuellytics-privacy-en.html",
+  { name: "Fuellytics", icon: "apps/fuellytics/fuellyticsicon.webp", shots: ["apps/fuellytics/fuellytics1.webp","apps/fuellytics/fuellytics2.webp"], play: PLAY("com.j7software.fuellytics"), privacy: "apps/fuellytics/privacy-policy.html",
     tags: { cz: ["Auto"], en: ["Car"] }, cz: "Chytrá sledovačka tankování, nabíjení a nákladů pro všechna vaše vozidla.", en: "Smart fuel, charging, and cost tracker for all your vehicles." },
-  { name: "SubWatcher", icon: "subwatchericon.png", shots: ["subwatcher1.png","subwatcher2.png"], play: PLAY("com.j7software.subwatcher"), privacy: "privacy_policy_subwatcher.html",
+  { name: "SubWatcher", icon: "apps/subwatcher/subwatchericon.webp", shots: ["apps/subwatcher/subwatcher1.webp","apps/subwatcher/subwatcher2.webp"], play: PLAY("com.j7software.subwatcher"), privacy: "apps/subwatcher/privacy-policy.html",
     tags: { cz: ["Finance"], en: ["Finance"] }, cz: "Hlídá vaše předplatná a upozorní vás dřív, než se strhne další platba.", en: "Keeps an eye on your subscriptions and reminds you before the next payment." },
-  { name: "Volt Monitor", icon: "voltmonitoricon.png", shots: ["voltmonitor1.png","voltmonitor2.png"], play: PLAY("com.j7software.voltmonitor"), privacy: "privacy-policy-voltmonitor.html",
+  { name: "Volt Monitor", icon: "apps/voltmonitor/voltmonitoricon.webp", shots: ["apps/voltmonitor/voltmonitor1.webp","apps/voltmonitor/voltmonitor2.webp"], play: PLAY("com.j7software.voltmonitor"), privacy: "apps/voltmonitor/privacy-policy.html",
     tags: { cz: ["Baterie"], en: ["Battery"] }, cz: "Sledování stavu baterie v reálném čase – napětí, proud, teplota i historie nabíjení, žádné vymyšlené hodnoty.", en: "Real-time battery monitoring – voltage, current, temperature, and charging history, with zero invented numbers." },
-  { name: "CatchFi", icon: "catchficon.png", shots: ["catchfi1.png","catchfi2.png"], play: PLAY("com.j7software.catchfi"), privacy: "https://j7software.eu/catchfi_privacy_policy.html",
+  { name: "CatchFi", icon: "apps/catchfi/catchficon.webp", shots: ["apps/catchfi/catchfi1.webp","apps/catchfi/catchfi2.webp"], play: PLAY("com.j7software.catchfi"), privacy: "apps/catchfi/privacy-policy.html",
     tags: { cz: ["Wi-Fi", "Bezpečnost"], en: ["Wi-Fi", "Security"] }, cz: "Hlídá okolní Wi-Fi sítě na pozadí a upozorní vás, když najde nezabezpečenou síť v dosahu.", en: "Scans nearby Wi-Fi networks in the background and alerts you when it finds an unsecured network in range." },
 ];
 
@@ -353,7 +352,7 @@ function card(x) {
   const tags = (x.tags[lang] || []).map((t, i) => `<span class="tag${i === 0 ? " main" : ""}">${t}</span>`).join("");
   const action = x.soon
     ? `<span class="soon">${T[lang].soon}</span>`
-    : `<a class="play" href="${x.play}" target="_blank" rel="noopener"><img src="googleplay.png" alt="${T[lang].play_alt}"></a>`;
+    : `<a class="play" href="${x.play}" target="_blank" rel="noopener"><img src="img/googleplay.webp" alt="${T[lang].play_alt}"></a>`;
   return `<article class="card">
     <div class="card-head"><div class="icon"><img src="${x.icon}" alt=""></div><div><h3>${name}</h3><div class="tags">${tags}</div></div></div>
     <p class="desc">${x[lang]}</p>
