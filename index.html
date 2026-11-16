@@ -271,7 +271,7 @@ footer .copy{font-size:.8rem;color:rgba(255,255,255,.3)}
 
 <script>
 const PLAY = id => `https://play.google.com/store/apps/details?id=${id}`;
-// hry (14. 11. 2026: 1.–3. díl Inspektora Falka vydány v Google Play): series = díl série Inspektor Falk (řada vedle sebe, seřazená podle čísla); wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
+// hry (14. 11. 2026: 1.–3. díl Inspektora Falka vydány v Google Play; 16. 11.: 4. díl Seven Sisters a 5. díl Monte Carlo jako „Již brzy“): series = díl série Inspektor Falk (řada vedle sebe, seřazená podle čísla); wide = screenshoty na šířku pod sebou; soon = ještě nevyšlo (místo tlačítka štítek)
 const GAMES = [
   { name: "Inspektor Falk: Zastavený čas", name_en: "Inspector Falk: Stopped Time", icon: "apps/inspektorfalk/falkicon.webp", shots: ["apps/inspektorfalk/falk1.webp","apps/inspektorfalk/falk2.webp"], series: 1,
     play: PLAY("com.j7software.inspektorfalk1"), privacy: "apps/inspektorfalk/privacy-policy.html",
@@ -288,6 +288,16 @@ const GAMES = [
     tags: { cz: ["Detektivka", "3. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 3", "Free to try"] },
     cz: "Podzim 1938. Parník Kassandra pluje v mlze po Dunaji a jeden z cestujících ráno chybí. Vyslýchej posádku i pasažéry a odhal, kdo je na palubě navíc. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
     en: "Autumn 1938. The steamer Kassandra sails down the fog-bound Danube, and by morning one passenger is gone. Question the crew and passengers and find out who else is on board. The beginning is free, a one-time purchase unlocks the full case – no ads." },
+  { name: "Inspektor Falk: Seven Sisters", name_en: "Inspector Falk: Seven Sisters", icon: "apps/inspektorfalk/falk4icon.webp", shots: ["apps/inspektorfalk/sylvanis1.webp","apps/inspektorfalk/sylvanis2.webp"], series: 4, soon: true,
+    play: PLAY("com.j7software.inspektorfalk4"), privacy: "apps/inspektorfalk/privacy-policy.html",
+    tags: { cz: ["Detektivka", "4. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 4", "Free to try"] },
+    cz: "Vysoké Tatry, leden 1939. Lavina odřízne Grand Hotel Sylvanis od světa a hraběnce zmizí slavný náhrdelník. Zloděj je pořád v hotelu – vyslýchej hosty a zjisti, kdo lže. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
+    en: "The High Tatras, January 1939. An avalanche cuts the Grand Hotel Sylvanis off from the world, and the countess's famous necklace is gone. The thief is still in the hotel – question the guests and find out who is lying. The beginning is free, a one-time purchase unlocks the full case – no ads." },
+  { name: "Inspektor Falk: Monte Carlo", name_en: "Inspector Falk: Monte Carlo", icon: "apps/inspektorfalk/falk5icon.webp", shots: ["apps/inspektorfalk/montecarlo1.webp","apps/inspektorfalk/montecarlo2.webp"], series: 5, soon: true,
+    play: PLAY("com.j7software.inspektorfalk5"), privacy: "apps/inspektorfalk/privacy-policy.html",
+    tags: { cz: ["Detektivka", "5. díl", "Zdarma na zkoušku"], en: ["Mystery", "Part 5", "Free to try"] },
+    cz: "Riviéra, Velikonoce 1939. Po velké noci u baccaratu najdou bankéře Kallase mrtvého na jeho jachtě. Vyslýchej hráče, krupiéry i hosty Monte Carla a zjisti, co se v noci stalo. Začátek případu zdarma, celý případ odemkne jednorázový nákup – bez reklam.",
+    en: "The Riviera, Easter 1939. After a big night at the baccarat table, the banker Kallas is found dead on his yacht. Question the gamblers, croupiers and guests of Monte Carlo and find out what happened that night. The beginning is free, a one-time purchase unlocks the full case – no ads." },
   { name: "Pippin’s Quest: Lost Treasure", icon: "apps/pippin/pippinicon.webp", shots: ["apps/pippin/pippin1.webp","apps/pippin/pippin2.webp"], wide: true,
     play: PLAY("com.j7software.pippin"), privacy: "apps/pippin/privacy-policy.html",
     tags: { cz: ["Plošinovka", "Pro děti"], en: ["Platformer", "For kids"] },
