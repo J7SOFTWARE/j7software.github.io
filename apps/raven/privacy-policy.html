@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raven File Manager — Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0f0d17;
+    --surface: #1a1625;
+    --border: #2e2448;
+    --accent: #ce93d8;
+    --accent2: #7b1fa2;
+    --text: #ede8f5;
+    --muted: #9e8fb5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  header {
+    background: linear-gradient(135deg, #4a148c, #7b1fa2);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(206,147,216,0.15), transparent 60%);
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+
+  header p {
+    color: rgba(237,232,245,0.7);
+    margin-top: 8px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 24px;
+  }
+
+  .card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card p {
+    color: var(--text);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(206,147,216,0.12);
+    border: 1px solid rgba(206,147,216,0.3);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .contact-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(206,147,216,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Raven File Manager</h1>
+  <p>Privacy Policy</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <span class="badge">Last updated: August 2026</span>
+    <h2>Introduction</h2>
+    <p>This Privacy Policy describes how Raven File Manager ("the App"), developed by J7Software, handles information when you use our Android application.</p>
+    <p>We are committed to protecting your privacy. This policy is transparent about what data is collected, why, and how it is used.</p>
+  </div>
+
+  <div class="card">
+    <h2>Information We Collect</h2>
+    <p>The App itself does not collect, store, or transmit any personal data. However, the App uses third-party services that may collect certain information:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> — displays advertisements and may collect device identifiers and usage data for ad personalization. This is governed by Google's Privacy Policy.</li>
+      <li><strong>Google User Messaging Platform (UMP)</strong> — determines, based on your general location, whether a consent message for ads and analytics is legally required, and stores your consent choice on your device. This choice also controls whether Firebase Analytics collects data (see below and the Advertising section).</li>
+      <li><strong>Firebase Analytics</strong> — collects app usage data (such as which features are used) to help us understand and improve the App. Collection is subject to your consent choice and defaults to off until that choice is known.</li>
+      <li><strong>Firebase Crashlytics</strong> — collects crash and error reports to help us identify and fix bugs.</li>
+    </ul>
+    <p>The App requests access to your device's file system solely to provide file management functionality. Files on your device are never uploaded, shared, or transmitted.</p>
+  </div>
+
+  <div class="card">
+    <h2>Permissions Used</h2>
+    <ul>
+      <li><strong>READ / WRITE External Storage</strong> — required to browse, copy, move, and manage files on your device.</li>
+      <li><strong>Manage All Files (Android 11+)</strong> — required to access all files on the device for full file manager functionality.</li>
+      <li><strong>Internet</strong> — required for loading advertisements via Google AdMob.</li>
+      <li><strong>AD_ID</strong> — used by Google AdMob to serve relevant advertisements.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Advertising</h2>
+    <p>The App uses Google AdMob to display interstitial and rewarded advertisements. AdMob and its advertising partners may collect device identifiers, app usage data, and other information to provide personalized or non-personalized ads.</p>
+    <p>If you are located in the European Economic Area, the United Kingdom, or Switzerland, the App will show you a consent message when you first open it, allowing you to accept or decline the use of your data for ad personalization, in line with the General Data Protection Regulation (GDPR). This same choice also controls whether Firebase Analytics collects data about your use of the App. You can review or change your choice at any time via <strong>Settings → Change ad consent</strong> inside the App.</p>
+    <p>A list of advertising partners that may process your data is available in <a class="contact-link" href="https://policies.google.com/technologies/partner-sites" target="_blank">Google's Partner Sites Policy</a>.</p>
+    <p>You can also opt out of personalized advertising at the device level under <strong>Settings → Google → Ads → Opt out of Ads Personalization</strong>.</p>
+    <p>For more information, see <a class="contact-link" href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Your US Privacy Rights (CCPA and Other State Laws)</h2>
+    <p>If you are a resident of California, Colorado, Connecticut, Virginia, Utah, or another U.S. state with a comprehensive consumer privacy law, you may have the right to opt out of the "sale" or "sharing" of your personal information for targeted or cross-context behavioral advertising, as defined under the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA), and similar state laws.</p>
+    <p>The App does not sell personal information in exchange for money. However, the use of Google AdMob and its advertising partners to serve personalized ads may be considered "sharing" of device identifiers and usage data under these laws.</p>
+    <p>You can opt out of this sharing at any time using <strong>Settings → Change ad consent</strong> inside the App, which lets you decline the use of your data for ad personalization.</p>
+    <p>We do not knowingly sell or share the personal information of consumers under 16 years of age.</p>
+    <p>To exercise any other rights available to you under applicable state law — such as the right to know, delete, or correct your personal information — please contact us using the details in the Contact section below.</p>
+  </div>
+
+  <div class="card">
+    <h2>Data Storage &amp; Security</h2>
+    <p>The App stores only minimal preferences locally on your device (such as language choice, sort order, and display settings) using Android SharedPreferences. This data never leaves your device.</p>
+    <p>No user accounts, passwords, or personal information are collected or stored by the App.</p>
+  </div>
+
+  <div class="card">
+    <h2>Children's Privacy</h2>
+    <p>The App is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information, please contact us.</p>
+  </div>
+
+  <div class="card">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Continued use of the App after changes constitutes acceptance of the new policy.</p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+    <p>Developer: <strong>J7Software</strong><br>
+    Location: Zlín, Czech Republic<br>
+    Email: <a class="contact-link" href="mailto:j7software@post.cz">j7software@post.cz</a><br>
+    Google Play: <a class="contact-link" href="https://play.google.com/store/apps/developer?id=J7SOFTWARE" target="_blank">J7Software on Google Play</a></p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 J7Software · Raven File Manager · All rights reserved
+</footer>
+
+</body>
+</html>
